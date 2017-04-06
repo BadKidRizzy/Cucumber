@@ -18,3 +18,4 @@ gem "compass", "~> 1.0.1"
 gem 'cucumber',             '=2.0.2'
 gem 'pretty_face'
 gem 'json', "~> 1.8.1"
+gem "headless"
