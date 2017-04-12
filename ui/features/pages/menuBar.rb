@@ -2,8 +2,8 @@ class MenuBar
   include PageObject
 
   page_url('')
-  
-  link(:homeIcon, :href => "/home")
+
+  link(:homeIcon, :xpath => "/html/body/app-root/main-page/pathevo-header/header/nav[2]/ul[2]/li[1]/a")
   link(:signup, :text => "Sign up")
   link(:login, :text => "Log in")
 

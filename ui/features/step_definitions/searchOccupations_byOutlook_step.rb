@@ -3,7 +3,7 @@ When(/^the user select "([^"]*)" from outlook$/) do |selected_stems|
   selected_stems = selected_stems.split(',')
 
   selected_stems.each do |selected_stem|
-  
+
     case selected_stem.downcase.strip
     when "green job"
       @page_object.searchOccupationsPage.greenJob_element.click
@@ -42,17 +42,17 @@ end
 When(/^the user select everything but "([^"]*)" from outlook$/) do |not_selected_stem|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   selected_stems = ["green job", "new and emerging", "numerous openings", "rapid growth"]
-  
+
   not_selected_stem = not_selected_stem.split(',')
   not_selected_stem = not_selected_stem.map(&:strip).map(&:downcase)
-  
+
   # selected_stems = selected_stems - [not_selected_stem.downcase.strip]
   selected_stems = selected_stems - not_selected_stem
   # @page_object.searchOccupationsPage.outlookReset_element.click
   @page_object.searchRelated.resetEles_elements[4].click
 
   selected_stems.each  do |selected_stem|
-    
+
     case selected_stem
     when "green job"
       @page_object.searchOccupationsPage.greenJob_element.click
@@ -73,8 +73,8 @@ end
 When(/^the user select the outlook reset button$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
 
-  # @page_object.searchOccupationsPage.outlookReset_element.click
-  @page_object.searchRelated.resetEles_elements[4].click
+  @page_object.searchOccupationsPage.outlookReset_element.click
+#  @page_object.searchRelated.resetEles_elements[4].click
 end
 
 # selected -----------
@@ -101,7 +101,7 @@ Then(/^the outlook filters should be unselected$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   selected_stems = ["green job", "new and emerging", "numerous openings", "rapid growth"]
   selected_stems.each  do |selected_stem|
-    
+
     case selected_stem.downcase
     when "green job"
       actual_result = @page_object.searchOccupationsPage.greenJob_checked?
@@ -139,10 +139,10 @@ end
 Then(/^the result will just display the "([^"]*)" for the selected outlook$/) do |expected_name|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
-  
+
   table_element = @page_object.searchSchoolsPage.searchResults_element
   result = TableUtiity.colmun_case_cam(table_element, 1, expected_name)
-  
+
   unless result
     body = @page_object.searchSchoolsPage.searchResults_element.text
     fail "Expected: The system should display #{expected_name} for selected outlook. \n result(s): \n #{body}"
@@ -153,10 +153,10 @@ end
 Then(/^the result will not display the "([^"]*)" for the selected outlook$/) do |expected_name|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
-  
+
   table = @page_object.searchSchoolsPage.searchResults_element
   result = TableUtiity.colmun_case_cam(table, 1, expected_name)
-  
+
   if result
     body = @page_object.searchSchoolsPage.searchResults_element.text
     fail "Expected: The system should not display #{expected_name} for selected outlook.\n result(s): \n #{body}"
@@ -166,10 +166,10 @@ end
 Then(/^the "([^"]*)" for the selected outlook will display at the top of the search result$/) do |expected_name|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
-  
+
   table_element = @page_object.searchSchoolsPage.searchResults_element
   result = TableUtiity.colmun_case_cam(table_element, 1, expected_name)
-  
+
   unless result
     body = @page_object.searchSchoolsPage.searchResults_element.text
     fail "Expected: The system should display #{expected_name} for selected outlook. \n result(s): \n #{body}"

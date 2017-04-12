@@ -1,15 +1,15 @@
 @smoke_test
 Feature: The system display the filters options and search results for majors
-  
+
   Scenario: The search table results should have header Major Name and Schools w/ Major
     When the user from Home Page navigate to Majors search Page
     Then the system will display majors table header name
-	    | header name          |  
+	    | header name          |
       | Major Name           |
-      | Schools with Majors  |      
+      | Schools with Majors  |
 
 
-  Scenario: The system should provide search filters  
+  Scenario: The system should provide search filters
     When the user from Home Page navigate to Majors search Page
     Then the system will display majors search filters
 	    | Filters                                                  |
@@ -33,6 +33,8 @@ Feature: The system display the filters options and search results for majors
       | Engineering                                              |
       | Mathematics                                              |
       | Multi-disciplinary                                       |
+      | Schools                                       |
+      | Occupations                                       |
 
 
   Scenario: The user should be able to reset the filters to default
@@ -50,12 +52,12 @@ Feature: The system display the filters options and search results for majors
 
     Then all area of study filters should be unchecked
     And all STEM discipline filters should be unchecked
-    And the system will reset search box to default 
+    And the system will reset search box to default
 
-  
+
   Scenario: The user should be able to reset the filters to default
     Given the user from Home Page navigate to Majors search Page
-    When the user select Science Technologies/Technicians 
+    When the user select Science Technologies/Technicians
     And the user select Agriculture, Agriculture Operations and Related Sciences
     And the user select Biological and Biomedical Sciences
     And the user select Computer and Information Sciences and Support Services
@@ -78,8 +80,4 @@ Feature: The system display the filters options and search results for majors
 
     Then all area of study filters should be unchecked
     And all STEM discipline filters should be unchecked
-    And the system will reset search box to default 
-
-
-  
-
+    And the system will reset search box to default

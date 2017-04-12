@@ -1,7 +1,7 @@
 class SearchSchoolsPage
   include PageObject
   page_url('/search/schools')
-  
+
   # text_field(:searchBox, :name => 'search')
   text_field(:searchBox, :css => "input[placeholder='Search']")
   button(:search, :css => "button[type='submit']")
@@ -52,9 +52,10 @@ class SearchSchoolsPage
   checkbox(:religious, :id => 'filter7-4')
   checkbox(:male, :id => 'filter7-5')
   checkbox(:female, :id => 'filter7-6')
-  span(:missionReset, :css => "div ~ div ~div ~div ~div ~div ~div .reset")  
+  span(:missionReset, :css => "div ~ div ~div ~div ~div ~div ~div .reset")
+  span(:specialMissionReset, :css => "div ~ div ~div ~div ~div ~div ~div ~div ~div .reset")
 
-  link(:next, :text => 'Next »')
+  link(:next, :text => 'Next ')
   link(:nextDisabled, :css => '.disabled a')
 
   span(:allReset, :css => '.icon-ccw')

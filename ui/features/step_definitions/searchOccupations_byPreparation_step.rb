@@ -3,7 +3,7 @@ When(/^the user select "([^"]*)" from preparation needed$/) do |selected_prepara
   selected_preparas = selected_preparas.split(',')
 
   selected_preparas.each do |selected_prepara|
-  
+
     case selected_prepara.downcase
     when "some preparation"
       @page_object.searchOccupationsPage.some_element.click
@@ -38,13 +38,13 @@ end
 When(/^the user select everything but "([^"]*)" from preparation needed$/) do |not_selected_prepara|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   selected_preparas = ["some preparation", "medium preparation", "considerable preparation"]
-  
+
   selected_preparas = selected_preparas - [not_selected_prepara.downcase.strip]
   # @page_object.searchOccupationsPage.preparationReset_element.click
   @page_object.searchRelated.resetEles_elements[3].click
 
   selected_preparas.each  do |selected_prepara|
-    
+
     case selected_prepara
     when "some preparation"
       @page_object.searchOccupationsPage.some_element.click
@@ -63,15 +63,15 @@ end
 When(/^the user select the preparation needed reset button$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
 
-  # @page_object.searchOccupationsPage.preparationReset_element.click
-  @page_object.searchRelated.resetEles_elements[3].click
+   @page_object.searchOccupationsPage.preparationReset_element.click
+  #@page_object.searchRelated.resetEles_elements[3].click
 end
 
 # # selected -----------
 
 Then(/^the "([^"]*)" filter would be selected from preparation needed$/) do |selected_prepara|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
-    
+
   case selected_prepara.downcase
   when "some preparation"
     actual_result = @page_object.searchOccupationsPage.somediv_element.class_name
@@ -82,14 +82,14 @@ Then(/^the "([^"]*)" filter would be selected from preparation needed$/) do |sel
   else
     fail "Please define #{selected_prepara} in your code"
   end
-  
+
   expect(actual_result.include? "active").to be(true), "The #{selected_prepara} filter expected to be selected."
 end
 
 Then(/^the preparation needed filters should be unselected$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   selected_preparas = ["some preparation", "medium preparation", "considerable preparation"]
-  
+
   selected_preparas.each  do |selected_prepara|
     case selected_prepara
     when "some preparation"
@@ -129,10 +129,10 @@ end
 Then(/^the result will just display the "([^"]*)" for the selected preparation needed$/) do |expected_name|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
-  
+
   table_element = @page_object.searchSchoolsPage.searchResults_element
   result = TableUtiity.colmun_case_cam(table_element, 1, expected_name)
-  
+
   unless result
     body = @page_object.searchSchoolsPage.searchResults_element.text
     fail "Expected: The system should display #{expected_name} for selected preparation needed. \n result(s): \n #{body}"
@@ -143,10 +143,10 @@ end
 Then(/^the result will not display the "([^"]*)" for the selected preparation needed$/) do |expected_name|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
-  
+
   table = @page_object.searchSchoolsPage.searchResults_element
   result = TableUtiity.colmun_case_cam(table, 1, expected_name)
-  
+
   if result
     body = @page_object.searchSchoolsPage.searchResults_element.text
     fail "Expected: The system should not display #{expected_name} for selected preparation needed.\n result(s): \n #{body}"
