@@ -1,3 +1,0 @@
-date
-cucumber -f html -o report_test_suite.html
-date

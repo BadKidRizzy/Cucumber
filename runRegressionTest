@@ -1,3 +1,0 @@
-date
-cucumber -t @regression -f html -o report_regression_test.html
-datee
