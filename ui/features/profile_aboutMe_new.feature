@@ -46,12 +46,10 @@ Background:
         Date of Birth
         Citizenship
         Ethnicity
-          select
           Hispanic or Latino
           Not Hispanic nor Latino
           Wish to not report
         Race
-          select
           American Indian / Alaska Native
           Asian
           Black or African American

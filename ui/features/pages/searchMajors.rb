@@ -1,7 +1,7 @@
 class SearchMajorsPage
   include PageObject
   page_url('/search/majors')
-
+  
   text_field(:searchBox, :css => 'form-control ng-pristine ng-valid ng-touched')
   button(:search, :css => '.btn btn-primary pull-right')
   table(:searchResults, :css => '.table.table-sortable')
@@ -17,14 +17,14 @@ class SearchMajorsPage
   checkbox(:natural, :id => 'a25eb75d-90ca-46b1-a079-cc3ee1f32528')
   checkbox(:physical, :id => 'e6f3c8c2-97c0-4652-9bbc-fe2f2a8808e9')
   checkbox(:science, :id => '7a12cb9f-3a57-4144-8f84-bfb11b377022')
-  span(:resetStudy, :xpath => '/html/body/app-root/main-page/main/search-page/search-majors/div/div[1]/aside/div/div[4]/span')
+  span(:resetStudy, :css => '.reset.pull-right')
 
   checkbox(:stemScience, :id => 'Science')
   checkbox(:technology, :id => 'Technology')
   checkbox(:stemEngineering, :id => 'Engineering')
   checkbox(:stemMathematics, :id => 'Math')
   checkbox(:multiDiscilinary, :id => 'Multi/interdisciplinary Studies')
-  span(:stemReset, :xpath => "/html/body/app-root/main-page/main/search-page/search-majors/div/div[1]/aside/div/div[5]/span")
+  span(:stemReset, :css => ".filter ~ .filter ~ .filter ~ .filter .reset")
 
   link(:next, :text => 'Next')
   span(:allReset, :css => '.icon-ccw')

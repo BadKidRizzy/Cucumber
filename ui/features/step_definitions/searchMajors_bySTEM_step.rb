@@ -78,8 +78,9 @@ end
 
 When(/^the user select the STEM discipline reset button$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
+
   # @page_object.searchMajorsPage.stemReset_element.click
-  @page_object.searchMajorsPage.stemReset_element.click
+  @page_object.searchRelated.resetEles_elements[3].click
 end
 
 #unchecked ---------------
@@ -128,7 +129,7 @@ Then(/^the system will display the below major name for the selected STEM discip
 
   test_support = TestSupport.new
   actual_result = test_support.get_values_of_2col_for_pages(1, 3)
-
+  
   table.rows.each do |major, school|
     expected_result = expected_result + [major + ";" + school]
   end
@@ -144,10 +145,10 @@ end
 Then(/^the system will display the "([^"]*)" for the selected STEM discipline$/) do |expected_name|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
-
+  
   table_element = @page_object.searchSchoolsPage.searchResults_element
   result = TableUtiity.colmun_case_cam(table_element, 1, expected_name)
-
+  
   unless result
     body = @page_object.searchSchoolsPage.searchResults_element.text
     fail "Expected: The system should display #{expected_name} STEM discipline. \n result(s): \n #{body}"
@@ -157,10 +158,10 @@ end
 Then(/^the system will not display the "([^"]*)" for the selected STEM discipline$/) do |expected_name|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
-
+  
   table = @page_object.searchSchoolsPage.searchResults_element
   result = TableUtiity.colmun_case_cam(table, 1, expected_name)
-
+  
   if result
     body = @page_object.searchSchoolsPage.searchResults_element.text
     fail "Expected: The system should not display #{expected_name} for STEM discipline.\n result(s): \n #{body}"
@@ -183,3 +184,5 @@ def search_by_major(search_name)
       WaitUtility.wait_untill_elements_size_steadied
     end
   end
+
+

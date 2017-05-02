@@ -44,6 +44,20 @@ end
 
 
 #display -------------------
+Then(/^the user will have below options to choose for IB subject$/) do |expected_table|
+  @page_object.profilePage.title_element.when_visible(TIME_OUT_LIMIT)
+  WaitUtility.wait_untill_elements_size_steadied
+  
+  @page_object.profilePage.ibSubject_element.click
+  actual_results = @page_object.profilePage.ibOptions_element.text
+  
+  expected_table = expected_table.split("\\n")
+
+  actual_results = actual_results.split("\n")
+  
+  expect(actual_results-expected_table).to eq(expected_table-actual_results), "expected: #{expected_table}\n got: #{actual_results}\n diff: #{actual_results-expected_table}\n#{expected_table-actual_results}"
+end
+
 Then(/^the user will have below options to choose for subject$/) do |table|
   @page_object.profilePage.title_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied

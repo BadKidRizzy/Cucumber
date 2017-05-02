@@ -21,32 +21,24 @@ Feature: The user with an account should be able to save tests data
     And the user delete all Profile data record
     Then the system will display below information under profile section
       """
-      Add another test
-      You have no tests saved. Click the button above to add one 
-      """
-
-    When the user select Add another education
-    Then the system will display below information under profile section
-      """
         Test
           select
           SAT
           SAT Subject
           ACT
           AP
+          IB
         Subject
           select
-        Test Date (optional)
+        Test Date
         Score
         Save
-        Cancel
       """
     
 
   @smoke_test
   Scenario: the user should be able to select subject for any Test
     When the user select "Tests" from Profile section
-    And the user select Add another education
     And the user select "SAT" test
     Then the user will have below options to choose for subject  
       | subject options                     |
@@ -85,11 +77,8 @@ Feature: The user with an account should be able to save tests data
     Then the user will have below options to choose for subject 
       | subject options   |
       | select            |
-      | English           |   
-      | Reading           |
-      | Science           |
-      | Writing           | 
-
+      | composite         |   
+      
     When the user select "AP" test
     Then the user will have below options to choose for subject   
       | subject options                        |
@@ -133,6 +122,13 @@ Feature: The user with an account should be able to save tests data
       | United States History                  |
       | World History                          |
 
+    When the user select "IB" test
+    Then the user will have below options to choose for IB subject 
+      """
+      Art History\nAstronomy\nBiology\nBusiness and Management\nChemistry\nChinese Studies\nClassical Greek\nClassical Greek and Roman Studies\nComputer Science\nDance\nDesign Tech.\nEconomics\nElectronics\nEnglish A\nEnglish AB\nEnglish B\nEnvironmental Systems and Societies\nFilm\nFurther Mathematics\nGeography\nHis&Con B/Stu\nHistory\nHistory of Africa\nHistory of Asia and Oceana\nHistory of Europe and the Middle East\nHistory of the Americas\nHuman Rights\nInformation Technology in a Global Society\nLanguage\nLanguage & Literature\nLatin\nLiterature and Performance\nMarine Science\nMathematics\nMathmatical Studies\nMusic\nMusic Creating\nMusic Group Performance\nMusic Solo Performance\nPeace and Conflict Studies\nPhilosophy\nPhysics\nPolitical Th.\nPolitics\nPsychology\nRef Project\nScience, Technology and Society\nSoc.Cul.Anth.\nSports Exercise and Health Science\nTheatre\nTheory of Knowledge\nVisual Arts\nWorld Arts and Cultures\nWorld Politics\nWorld Religions\nWorld Studies
+      """
+
+     
       
 
   Scenario: the Save button should be disable until the user enter all required fields

@@ -1,9 +1,9 @@
 Feature: The user should be able to search for school by School Name
 
 @smoke_test
-Scenario: The system should display 10 universities per page in ascending order by default 
+Scenario: The system should display 10 universities per page in Rank ascending order by default 
 	When the user from Home Page navigate to School search Page
-	Then the system will display 10 universities per page in ascending order
+	Then the system will display 10 universities per page in Rank ascending order
 
  @regression   
  Scenario Outline: The user should be able to search for school by full name, partial name or abbreviation name

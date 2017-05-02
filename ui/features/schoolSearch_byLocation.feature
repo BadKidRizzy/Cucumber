@@ -71,6 +71,7 @@ Feature: The user should be able to search for school by location
         New York
         North Carolina
         North Dakota
+        Northern Mariana Islands
         Ohio
         Oklahoma
         Oregon

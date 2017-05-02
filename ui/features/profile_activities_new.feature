@@ -21,13 +21,6 @@ Feature: The user with an account should be able to save activities data
     And the user delete all Profile data record
     Then the system will display below information under profile section
       """
-      Add another activity
-      You have no activities saved. Click the button above to add one 
-      """
-
-    When the user select Add another activity
-    Then the system will display below information under profile section
-      """
        Name of Activity
       Type of Activity
         select
@@ -61,7 +54,6 @@ Feature: The user with an account should be able to save activities data
       Hours
       Description
       Save
-      Cancel
       """
       
 

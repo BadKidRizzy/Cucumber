@@ -3,7 +3,7 @@ Then(/^the Favorites section will display$/) do
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
 
-  expect(@page_object.homePage.favorites_element.text).to eq("Favorites")
+  expect(@page_object.homePage.favorites_element.text).to eq("Favorite Schools ?")
 end
 
 Then(/^the Assessments section will display$/) do
@@ -23,14 +23,16 @@ end
 Then(/^the favorites button should be disable$/) do
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
-  
+  result = true
+
   begin
     @page_object.homePage.favoriteBut_element.click
     result = false
   rescue Exception => e
     message = e.to_s
-    result = true if message.include? 'disabled="true"'
+    result = false if message.include? 'disabled="false"'
   end
+  p result
   expect(result).to eq(true), "The user did not login the favorite button should be disabled"
 end
 

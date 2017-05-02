@@ -2,7 +2,7 @@ Feature: The user should be able to login and edit the Profile
   
   @smoke_test
   Scenario: The system should display the user registration information in profile section
-    Given the user is registered with belove information
+    Given the user is registered with below information
       | key              | Value           |
       | First name       | Jem             |
       | Last name        | Dell            |

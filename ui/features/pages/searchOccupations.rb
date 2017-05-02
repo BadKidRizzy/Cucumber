@@ -3,7 +3,7 @@ class SearchOccupationsPage
   page_url('/search/occupations')
 
 
-  text_field(:salary, :css => '.form-control')
+  text_field(:salary, :css => '[placeholder="minimum"]')
   span(:salaryReset, :css => "div .reset")
 
   select_list(:careerDrop, :css => '#career-cluster')
@@ -22,11 +22,19 @@ class SearchOccupationsPage
   div(:somediv, :css => '.rate-icons')
   div(:mediumdiv, :css => '.rate-icons ~ .rate-icons')
   div(:considerablediv, :css => '.rate-icons ~ .rate-icons ~ .rate-icons')
-  span(:preparationReset, :css => "div ~div ~div .reset")
+  span(:preparationReset, :css => "div ~ div ~div ~div .reset")
 
   checkbox(:greenJob, :css => '#b1')
   checkbox(:emerging, :css => '#b2')
   checkbox(:numerous, :css => '#b3')
   checkbox(:rapid, :css => '#b4')
-  span(:outlookReset, :css => " div ~div ~div ~div .reset")
+  span(:outlookReset, :css => "div ~ div ~div ~div ~div .reset")
 end
+
+
+
+
+
+
+
+

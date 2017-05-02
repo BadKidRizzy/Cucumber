@@ -4,6 +4,7 @@ Then(/^the user select certificate$/) do
 
   # @page_object.searchSchoolsPage.awardReset_element.click
   @page_object.searchRelated.resetEles_elements[1].click
+  sleep 5
   @page_object.searchSchoolsPage.certificate_element.click
 end
 
@@ -184,7 +185,7 @@ Then(/^the user select the award reset button$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
 
   # @page_object.searchSchoolsPage.awardReset_element.click
-  @page_object.searchRelated.resetEles_elements[1].click
+  @page_object.searchRelated.resetEles_elements[0].click
 end
 # display --------------------------------------------------
 Then(/^the result will only show school\(s\) that offers certificate by "([^"]*)"$/) do |result_name|

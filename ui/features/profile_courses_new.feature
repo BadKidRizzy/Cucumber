@@ -21,13 +21,6 @@ Feature: The user with an account should be able to save courses data
     And the user delete all Profile data record
     Then the system will display below information under profile section
       """
-      Add another course
-      You have no courses saved. Click the button above to add one 
-      """
-
-    When the user select Add another course
-    Then the system will display below information under profile section
-      """
         Course Name
         Course Type
           Select
@@ -78,7 +71,6 @@ Feature: The user with an account should be able to save courses data
           N/A
         Final Grade
         Save
-        Cancel
       """
 
 

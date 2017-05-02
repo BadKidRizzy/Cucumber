@@ -27,8 +27,8 @@ Background:
         Address Line 1
         Address Line 2
         City
-        State/Province/Region
-        Zip/Postal Code
+        State
+        Postal Code
       """
 
   

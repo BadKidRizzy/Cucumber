@@ -17,7 +17,7 @@ When(/^the user select the salary reset button$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
 
   # @page_object.searchOccupationsPage.salaryReset_element.click
-  @page_object.searchRelated.resetEles_elements[0].click
+  @page_object.searchRelated.resetEles_elements[4].click
 end
 
 Then(/^the salary text box should be cleared$/) do

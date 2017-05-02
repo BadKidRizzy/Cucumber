@@ -21,13 +21,6 @@ Feature: The user with an account should be able to save achievements data
     And the user delete all Profile data record
     Then the system will display below information under profile section
       """
-      Add another achievement
-      You have no achievements saved. Click the button above to add one 
-      """
-
-    When the user select Add another achievement
-    Then the system will display below information under profile section
-      """
         Title of Achievement
         At what level were you recognized for this achievement? Select multiple if applicable.
           High School
@@ -47,7 +40,6 @@ Feature: The user with an account should be able to save achievements data
           12th grade
         Description
         Save
-        Cancel
       """
       
 

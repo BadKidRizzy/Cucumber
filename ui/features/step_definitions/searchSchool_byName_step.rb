@@ -1,3 +1,18 @@
+Then(/^the system will display (\d+) universities per page in Rank ascending order$/) do |per_page|
+  WaitUtility.wait_untill_elements_size_steadied
+  @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
+  test_support = TestSupport.new
+  col_name ="Rank"
+  page_num = '1'
+    
+  result = test_support.get_values_col_for_pages(col_name, page_num)
+  result.map!{ |element| element.gsub('#', '') }
+  result.map!{ |element| element.to_i }
+
+  error_msg = "The system did not display the #{col_name}'s results in ascending sort."
+  expect(test_support.check_ascending_sort(result)).to be(true), "#{error_msg}\nExpected:\n#{result.sort}\nGot:\n#{result}"
+end
+
 Then(/^the system will display (\d+) universities per page in ascending order$/) do |per_page|
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
@@ -151,14 +166,16 @@ def find_if_there_is_match(search_name, result_name)
 end
 
 def ascending? (return_result)
-  per_page = return_result.size
-  expected_result = return_result.sort
-  for i in 0..per_page
-    yes = false
-    break unless return_result[i] == expected_result[i]
-    yes = true
-  end
-  yes
+  # per_page = return_result.size
+  expected_result = return_result.sort_by(&:downcase)
+  expect(return_result).to eq(expected_result) 
+  
+  # for i in 0..per_page
+  #   yes = false
+  #   break unless return_result[i] == expected_result[i]
+  #   yes = true
+  # end
+  # yes
 end
 
 def check_top_results(school_name_results, partial_name)

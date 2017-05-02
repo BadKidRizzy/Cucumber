@@ -21,13 +21,6 @@ Feature: The user with an account should be able to save education data
     And the user delete all Profile data record
     Then the system will display below information under profile section
       """
-        Add another education
-        You have no education saved. Click the button above to add one. 
-      """
-
-    When the user select Add another education
-    Then the system will display below information under profile section
-      """
       High School
       Do you intend to graduate from this school?
       Yes
@@ -41,7 +34,6 @@ Feature: The user with an account should be able to save education data
       out of total
       
       Save
-      Cancel
       """
 
 

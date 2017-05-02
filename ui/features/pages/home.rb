@@ -9,7 +9,7 @@ class HomePage
   # h4(:cardTitle, :css =>'#card-title')
   link(:cardTitle, :css =>'.text-primary a')
 
-  h1(:favorites, :text => 'Favorites')
+  h1(:favorites, :text => 'Favorite Schools ?')
   h1(:assessments, :text => 'Assessments')
   h1(:highlights, :text => 'Highlights')
 

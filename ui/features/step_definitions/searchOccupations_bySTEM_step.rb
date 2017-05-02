@@ -76,7 +76,7 @@ When(/^the user select the STEM reset button$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
 
   # @page_object.searchOccupationsPage.stemReset_element.click
-  @page_object.searchRelated.resetEles_elements[2].click
+  @page_object.searchRelated.resetEles_elements[5].click
 end
 
 # selected -----------

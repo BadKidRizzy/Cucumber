@@ -9,7 +9,7 @@ Then(/^the user select Profile from drop down$/) do
   end 
 end
 
-Given(/^the user is registered with belove information$/) do |table|
+Given(/^the user is registered with below information$/) do |table|
   table_hash = {}
   table.rows.each do |key, value|
      table_hash[key] = value
@@ -22,7 +22,16 @@ Given(/^the user is registered with belove information$/) do |table|
   puts "****** The expect page url: #{page_url} ******"
   puts "****** The current page url: #{BROWSER.url} ******"
 
-  BROWSER.goto page_url
+  # BROWSER.goto page_url
+ if (BROWSER.url.include? "sign") || (BROWSER.url.include? "login") || (BROWSER.url.include? "profile")
+    @page_object.loginDropDown.username_element.when_visible(TIME_OUT_LIMIT).click
+
+    @page_object.loginDropDown.logOut_element.when_visible(TIME_OUT_LIMIT).click
+    BROWSER.goto URLS
+  else
+    BROWSER.goto page_url
+  end
+
   @page_object.homePage.login_element.when_visible(TIME_OUT_LIMIT)
     
   @page_object.loginPage.signUp_element.click
@@ -236,6 +245,8 @@ def select_link(profile_option)
       @page_object.profilePage.aboutMe_element.click
     when "contact"
       @page_object.profilePage.contact_element.click
+    when "payment"
+      @page_object.profilePage.payment_element.click
     when "settings"
       @page_object.profilePage.settings_element.click
     when "education"

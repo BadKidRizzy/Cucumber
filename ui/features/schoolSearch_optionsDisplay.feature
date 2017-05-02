@@ -4,53 +4,51 @@ Feature: The system display the filters options and search results
   Scenario: The search table results should have header School Name, Notes, Location, Tuition, Undergrads and Acceptance
     When the user from Home Page navigate to School search Page
     Then the system will display table header name
-	| header name    |
-      | School Name    |
-      | Notes  	     |
-      | Location 	     |
+	    | header name    |
+      | School Name    |	
       | Tuition        |
       | Undergrads     |
       | Acceptance     |
+      | Rank           |
 
 
-  Scenario: The system should provide search filters
+
+  Scenario: The system should provide search filters  
     When the user from Home Page navigate to School search Page
     Then the system will display search filters
 	    | Filters                     |
-      | Advanced Filters            |
 	    | Reset				                |
-      | School Type                 |
-      | Public                      |
-      | Private                     |
-      | Reset				                |
       | Award                       |
       | Certificate                 |
-      | Associate's                 |
-      | Bachelor's                  |
-      | Advanced                    |
-      | Reset			                	|
+      | Associate's           |
+      | Bachelor's            |
+      | Advanced              |
+      | Reset       |
+      | Majors                      |
       | Total School Size           |
       | Small (less than 5,000)     |
       | Medium (5,000 - 20,000)     |
       | Large (greater than 20,000) |
-      | Reset				                |
+      | Reset       |
       | Location                    |
       | Region                      |
       | State                       |
       | Zip                         |
-      | Reset				|
+      | Reset       |
       | Tuition                     |
-      | Majors                      |
-      | —                           |
       | $                           |
-      | $                           |
-      | Reset				|
+      | |
+      | Reset       |
       | Campus Setting              |
       | City                        |
-      | Suburb                   |
+      | Suburb                    |
       | Town                        |
       | Rural                       |
-      | Reset			      |
+      | Reset           |
+      | School Type                 |
+      | Public                      |
+      | Private                     |
+      | Reset				|
       | Special Mission             |
       | HBCU                        |
       | Hispanic-Serving            |
@@ -60,9 +58,9 @@ Feature: The system display the filters options and search results
       | Single Sex : Female         |
 
 
-  Scenario: The search table results should ascending sort the School Name by default
+  Scenario: The search table results should ascending sort the School Rank by default 
     Given the user from Home Page navigate to School search Page
-    Then the system will display the School Name in ascending sort - check just 2 pages
+    Then the system will display the School Rank in ascending sort - check just 2 pages
 
 
     Scenario: The user should be able to sort ascending and descending by School Name
@@ -73,12 +71,12 @@ Feature: The system display the filters options and search results
       Then the system will display the School Name in descending sort - check just 2 pages
 
 
-    Scenario: The user should be able to sort ascending and descending by Location
-      Given the user from Home Page navigate to School search Page
-      When the user sort by Location
-      Then the system will display the Location in ascending sort - check just 2 pages
-      When the user sort by Location
-      Then the system will display the Location in descending sort - check just 2 pages
+    # Scenario: The user should be able to sort ascending and descending by Location
+    #   Given the user from Home Page navigate to School search Page
+    #   When the user sort by Location
+    #   Then the system will display the Location in ascending sort - check just 2 pages
+    #   When the user sort by Location
+    #   Then the system will display the Location in descending sort - check just 2 pages
 
 
     Scenario: The user should be able to sort ascending and descending by Tuition
@@ -88,7 +86,7 @@ Feature: The system display the filters options and search results
       When the user sort by Tuition
       Then the system will display the Tuition in descending sort - check just 2 pages
 
-
+  
     Scenario: The user should be able to sort ascending and descending by Undergrads
       Given the user from Home Page navigate to School search Page
       When the user sort by Undergrads
@@ -116,25 +114,25 @@ Feature: The system display the filters options and search results
       And the user type the minimum "16000" for tuition
       And the user type the maximum "34000" for tuition
       And the user select city
-      And the user select Hispanic-serving
-      Then the exact matching school by "SAN FRANCISCO STATE UNIVERSITY SAN FRANCISCO, CA" will be at the top of the search result
+      And the user select Hispanic-serving 
+      # Then the exact matching school by "San Francisco State University" will be at the top of the search result
 
       When the user select the reset button
       Then the system will reset School Type filters to default
       And the system will reset Award filters to default
-      And the system will reset School Size filters to default
-      And the system will reset Location filters to default
-      And the system will reset Tuition filters to default
-      And the system will reset Campus Setting filters to default
-      And the system will reset Special Mission filters to default
-      And the system will reset search box to default
-      And the system will reset sort ascending and descending to default
+      And the system will reset School Size filters to default 
+      And the system will reset Location filters to default 
+      And the system will reset Tuition filters to default 
+      And the system will reset Campus Setting filters to default 
+      And the system will reset Special Mission filters to default 
+      And the system will reset search box to default 
+      And the system will reset sort ascending and descending to default 
 
 
     Scenario: The user should be able to reset the filters to default
       Given the user from Home Page navigate to School search Page
-      When the user sort by Location
-      And the user select private
+      # When the user sort by Location
+      When the user select private
       And the user select advanced
       And the user select small
       And the user select the state and choose "Alabama" form drop-down
@@ -146,12 +144,12 @@ Feature: The system display the filters options and search results
 
       Then the system will reset School Type filters to default
       And the system will reset Award filters to default
-      And the system will reset School Size filters to default
-      And the system will reset Location filters to default
-      And the system will reset Tuition filters to default
-      And the system will reset Campus Setting filters to default
-      And the system will reset Special Mission filters to default
-      And the system will reset search box to default
+      And the system will reset School Size filters to default 
+      And the system will reset Location filters to default 
+      And the system will reset Tuition filters to default 
+      And the system will reset Campus Setting filters to default 
+      And the system will reset Special Mission filters to default 
+      And the system will reset search box to default 
       And the system will reset sort ascending and descending to default
 
 
@@ -171,13 +169,13 @@ Feature: The system display the filters options and search results
 
       Then the system will reset School Type filters to default
       And the system will reset Award filters to default
-      And the system will reset School Size filters to default
-      And the system will reset Location filters to default
-      And the system will reset Tuition filters to default
-      And the system will reset Campus Setting filters to default
-      And the system will reset Special Mission filters to default
-      And the system will reset search box to default
-      And the system will reset sort ascending and descending to default
+      And the system will reset School Size filters to default 
+      And the system will reset Location filters to default 
+      And the system will reset Tuition filters to default 
+      And the system will reset Campus Setting filters to default 
+      And the system will reset Special Mission filters to default 
+      And the system will reset search box to default 
+      And the system will reset sort ascending and descending to default 
 
 
     Scenario: The user should be able to reset the filters to default
@@ -195,15 +193,15 @@ Feature: The system display the filters options and search results
 
       Then the system will reset School Type filters to default
       And the system will reset Award filters to default
-      And the system will reset School Size filters to default
-      And the system will reset Location filters to default
-      And the system will reset Tuition filters to default
-      And the system will reset Campus Setting filters to default
-      And the system will reset Special Mission filters to default
-      And the system will reset search box to default
-      And the system will reset sort ascending and descending to default
+      And the system will reset School Size filters to default 
+      And the system will reset Location filters to default 
+      And the system will reset Tuition filters to default 
+      And the system will reset Campus Setting filters to default 
+      And the system will reset Special Mission filters to default 
+      And the system will reset search box to default 
+      And the system will reset sort ascending and descending to default   
 
-
+  
     Scenario: The user should be able to reset the filters to default
       Given the user from Home Page navigate to School search Page
       When the user sort by Acceptance
@@ -219,10 +217,12 @@ Feature: The system display the filters options and search results
 
       Then the system will reset School Type filters to default
       And the system will reset Award filters to default
-      And the system will reset School Size filters to default
-      And the system will reset Location filters to default
-      And the system will reset Tuition filters to default
-      And the system will reset Campus Setting filters to default
-      And the system will reset Special Mission filters to default
-      And the system will reset search box to default
-      And the system will reset sort ascending and descending to default
+      And the system will reset School Size filters to default 
+      And the system will reset Location filters to default 
+      And the system will reset Tuition filters to default 
+      And the system will reset Campus Setting filters to default 
+      And the system will reset Special Mission filters to default 
+      And the system will reset search box to default 
+      And the system will reset sort ascending and descending to default 
+
+

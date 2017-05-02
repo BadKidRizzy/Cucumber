@@ -16,7 +16,8 @@ class SearchRelated
   div(:searchFilters, :css => '.well')
   button(:firstSelected, :css => '.active-filters button')
 
-  text_field(:searchBox, :css => ".NaN")
+  # text_field(:searchBox, :css => ".NaN")
+  text_field(:searchBox, :css => "[name='search'] input")
   text_field(:jobSearchBox, :css => "[name = 'search']")
 
   button(:search, :css => "button[type='submit']")

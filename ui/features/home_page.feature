@@ -20,12 +20,12 @@ Feature: The system will display some useful information in home page
     When the user click X button in Favorites section
     Then the system will display new selection in Favorites section
 
-  @smoke_test
-  Scenario: The user should provide Schools, Majors and Occupations details in Favorites section
-    When the user on the Home Page
-    Then the "Schools" favorites should be click-able
-    Then the "Majors" favorites should be click-able
-    Then the "Occupations" favorites should be click-able
+  # @smoke_test
+  # Scenario: The user should provide Schools, Majors and Occupations details in Favorites section
+  #   When the user on the Home Page
+  #   Then the "Schools" favorites should be click-able
+  #   Then the "Majors" favorites should be click-able
+  #   Then the "Occupations" favorites should be click-able
    
 
   Scenario: The user should be able to search for school from Favorites Schools section

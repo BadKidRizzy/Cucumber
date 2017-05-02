@@ -1,4 +1,4 @@
-class ProfilePage
+class TestProfilePage
   include PageObject
 
   page_url('/profile/view')
@@ -13,10 +13,8 @@ class ProfilePage
   # link(:aboutMe, :css => '[href="/profile/about-me"]')
   link(:aboutMe, :css => ".col-xs-12.col-sm-3.col-lg-2 li a")
   link(:contact, :css => '[href="/profile/contact"]')
-  # link(:settings, :text => 'Settings')
   # link(:settings, :css => '[href="/profile/settings"]')
-  link(:payment, :css => ".col-xs-12.col-sm-3.col-lg-2 li ~li ~li a")
-  link(:settings, :css => ".col-xs-12.col-sm-3.col-lg-2 li ~li ~li ~li a")
+  link(:settings, :css => ".col-xs-12.col-sm-3.col-lg-2 li ~li ~li a")
   link(:education, :css => '[href="/profile/education"]')
   link(:courses, :css => '[href="/profile/courses"]')
   link(:tests, :css => '[href="/profile/tests"]')
@@ -134,9 +132,6 @@ class ProfilePage
 
   text_field(:testDate, :css => '#Test-Date')
   text_field(:scoreTest, :css => '#score')
-
-  div(:ibSubject, :css => '.single')
-  div(:ibOptions, :css => '.options')
   
   # Activities ----------------
   text_field(:activityName, :css => '#activity-title')
@@ -171,5 +166,48 @@ class ProfilePage
   checkbox(:achInt, :css => '#act-int')
 
   textarea(:achieveDescription, :css => '#ach-des')
+
+  def get_text_fields
+    return BROWSER.element.text_fields
+  end
+
+  def get_radio_buttons
+    return BROWSER.element.radios
+  end
+
+  def get_selects
+    return BROWSER.element.selects
+  end
+
+  def aboutMeTextFields
+    eles = {}
+    ele = get_text_fields
+    eles["First name"] = ele[0]
+    eles["Last name"] = ele[1]
+    return eles
+  end
+
+  def aboutMeRadioButtons
+    eles = {}
+    ele = get_radio_buttons
+    eles["freshman"] = ele[0]
+    eles["sophomore"] = ele[1]
+    eles["junior"] = ele[2]
+    eles["senior"] = ele[3]
+    eles["male"] = ele[5]
+    eles["female"] = ele[4]
+    return eles
+  end
+
+  def aboutMeSelects
+    eles = {}
+    ele = get_selects
+    eles["Birth Month"] = ele[0]
+    eles["Birth Day"] = ele[1]
+    eles["Birth Year"] = ele[2]
+    eles["Ethnicity"] = ele[3]
+    eles["Race"] = ele[4]
+    return eles
+  end
 end
 

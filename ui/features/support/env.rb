@@ -21,20 +21,20 @@ require "WebDriverFactory"
 require "WaitUtility"
 require "TableUtiity"
 require "TestSupport"
-require 'headless'
+# require 'headless'
 
 Before do
   BROWSER ||= WebDriverFactory.web_driver_factory()
-  @screen_shot_option ||= WebDriverFactory.screen_shot
+  @screen_shot_option ||= WebDriverFactory.screen_shot  
   BROWSER.driver.manage.delete_cookie "cart"
   BROWSER.driver.manage.delete_all_cookies
-  BROWSER.driver.manage.window.maximize
-
+  # BROWSER.driver.manage.window.maximize
+  
   # BROWSER.driver.manage.window.move_to(0,0)
   # BROWSER.driver.manage.window.resize_to(1480, 1124)
+  
 
-
-  TIME_OUT_LIMIT ||= 6
+  TIME_OUT_LIMIT ||= 20
   Per_Page ||= 10
   URLS ||= WebUrlFactory.web_url_factory
 end
@@ -50,7 +50,7 @@ if ENV['HEADLESS']
 end
 
 After do |scenario|
-
+  
   if (scenario.failed? && @screen_shot_option == true)
     screenshot_name = ScreenShotName.take_screenshot_name(scenario)
 
@@ -59,7 +59,7 @@ After do |scenario|
     BROWSER.driver.manage.window.resize_to(screen_width,screen_height)
     BROWSER.driver.manage.window.move_to(0,0)
     BROWSER.execute_script("document.body.style.zoom='60%'")
-
+    
     BROWSER.driver.save_screenshot screenshot_name
     embed screenshot_name, 'image/png'
     BROWSER.execute_script("document.body.style.zoom='100%'")
@@ -78,3 +78,5 @@ After do |scenario|
     BROWSER.close
   end
 end
+
+

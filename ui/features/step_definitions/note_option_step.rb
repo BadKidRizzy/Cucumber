@@ -13,22 +13,26 @@ end
 Given(/^the user select a university$/) do
   WaitUtility.wait_untill_elements_size_steadied
   table = @page_object.searchSchoolsPage.searchResults_element
-  table[1][0].click
+  table[1][1].click
 end
 
 When(/^the user select the university as favorite$/) do
   WaitUtility.wait_untill_elements_size_steadied
   table = @page_object.searchSchoolsPage.searchResults_element
-  table[1][0].click
+  table[1][2].click
 
   WaitUtility.wait_untill_elements_size_steadied
   class_text = @page_object.detailPage.favoriteDetail_element.when_visible(TIME_OUT_LIMIT).attribute("class")
   @page_object.detailPage.favoriteDetail_element.when_visible(TIME_OUT_LIMIT).click if class_text.include? "outline"
 end
 
-When(/^the system should display asterisk for required field - title$/) do
+When(/^the system should display optional for not required field$/) do
   WaitUtility.wait_untill_elements_size_steadied
-  fail "Write the code for - Display asterisk for required field"
+  title_note = @page_object.detailPage.titleNote_element.attribute('placeholder')
+  body_note = @page_object.detailPage.bodyNote_element.attribute('placeholder')
+
+  expect(title_note.include? "optional").to eq(false), "The title note is required.\n expected: false\n got: true"
+  expect(body_note.include? "optional").to eq(true), "The body note is optional.\n expected: true\n got: false"
 end
 
 
@@ -40,7 +44,7 @@ When(/^the user add and save note\(s\)$/) do |table|
     @page_object.detailPage.titleNote = key
     @page_object.detailPage.bodyNote = value
     @page_object.detailPage.saveNote_element.when_visible(TIME_OUT_LIMIT).click
-
+    
     @page_object.detailPage.addNote_element.when_visible(TIME_OUT_LIMIT).click unless i == x_i
     WaitUtility.wait_untill_elements_size_steadied
   end
@@ -55,9 +59,7 @@ end
 
 When(/^the user select Notes from detail page$/) do
   WaitUtility.wait_untill_elements_size_steadied
-#  BROWSER.execute_script("document.getElementsByClassName('infobtn')[0].style.visibility = 'visible';")
-#  @page_object.detailPage.info_element.click
-    BROWSER.goto "https://qaprep.pathevo.com/detail/schools/bb25cb6f-f993-4b9b-9d20-6949968a0d57"
+
   @page_object.detailPage.notes_element.when_visible(TIME_OUT_LIMIT).click
 end
 
@@ -73,14 +75,14 @@ When(/^the user delete all existing note$/) do
 
     next_delete = false if note_content.include? "New note"
   end
-
+  
 end
 
 #display ------------------
 
 Then(/^the system should be displayed below info\. under Notes section$/) do |table|
   WaitUtility.wait_untill_elements_size_steadied
-
+  
   expect_data = []
   expect_data = table.rows.map{|x, y| x.strip}
   expect_data = expect_data + ["Title", "Content"]
@@ -91,14 +93,14 @@ Then(/^the system should be displayed below info\. under Notes section$/) do |ta
 
   expect_results = expect_data - note_content
   got_results = note_content - expect_data
-
+  
   expect(got_results).to eq(expect_results), "expected: #{expect_data}\n     got:#{note_content}\n   diff:\n#{expect_results}\n#{got_results}"
 end
 
 Then(/^the system should be displayed below title$/) do |table|
   WaitUtility.wait_untill_elements_size_steadied
   note_content = @page_object.detailPage.noteTable_element.when_visible(TIME_OUT_LIMIT).text
-
+  
    table.rows.each do |key, v|
     expect(note_content.include? key).to eq(true), "It was looking for: #{key}\ngot: #{note_content}"
    end
@@ -138,7 +140,7 @@ Given(/^the user A register and stay login$/) do |table|
   @table = table_hash
 
   @page_object = PageObjectLoginRelated.new(BROWSER)
-
+    
   page_url = URLS + @page_object.homePage.page_url_value
   puts "****** The expect page url: #{page_url} ******"
   puts "****** The current page url: #{BROWSER.url} ******"
@@ -186,3 +188,4 @@ Given(/^the user A register and stay login$/) do |table|
   end
   # @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
 end
+

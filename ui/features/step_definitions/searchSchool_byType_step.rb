@@ -30,7 +30,7 @@ When(/^the user select the school type reset button$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
 
   # @page_object.searchSchoolsPage.resetType_element.click
-  @page_object.searchRelated.resetEles_elements[0].click
+  @page_object.searchRelated.resetEles_elements[6].click
 end
 
 Then(/^the public and private filter should be unchecked$/) do
