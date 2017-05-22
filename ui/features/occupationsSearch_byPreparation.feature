@@ -1,3 +1,4 @@
+@occupationsSearch
 Feature: The user should be able to filter the search result by preparation needed
 
   @smoke_test
@@ -16,24 +17,24 @@ Feature: The user should be able to filter the search result by preparation need
     Then the preparation needed filters should be unselected
 
   @regression
-  Scenario: The system should provide same name for Some, Medium, Considerable preparation filters when hover over or select that filter 
+  Scenario: The system should provide same name for Medium, Considerable and Extensive preparation filters when hover over or select that filter 
     Given the user from Home Page navigate to Occupations search Page
-    When the user select "Some preparation" from preparation needed
-    #Then the "Some preparation" should display under the search bar
-
-    When the user select the preparation needed reset button
-    And the user select "Medium preparation" from preparation needed
-    Then the "Medium preparation" should display under the search bar
+    When the user select "Medium preparation" from preparation needed
+    Then the "Medium Preparation Needed" should display under the search bar
 
     When the user select the preparation needed reset button
     And the user select "Considerable preparation" from preparation needed
-    Then the "Considerable preparation" should display under the search bar
+    Then the "Considerable Preparation Needed" should display under the search bar
+
+    When the user select the preparation needed reset button
+    And the user select "Extensive preparation" from preparation needed
+    Then the "Extensive Preparation Needed" should display under the search bar
 
     
   @regression
-  Scenario: The system should provide "Some preparation" filter for preparation needed
+  Scenario: The system should provide "Medium preparation" filter for preparation needed
     Given the user from Home Page navigate to Occupations search Page
-    When the user just select "Some preparation" from preparation needed
+    When the user just select "Medium preparation" from preparation needed
     Then the system will display the below occupations name for the selected preparation needed
         """
         Medical Transcriptionists

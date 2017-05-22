@@ -10,7 +10,7 @@ When(/^the user enter the achievement data$/) do |table|
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.profilePage.title_element.when_visible(TIME_OUT_LIMIT)
 
-  @page_object.profilePage.addItem_element.click 
+  @page_object.profilePage.addItem_element.click if @page_object.profilePage.addItem_element.visible?
 
   @enter_table_hash = get_achievement_table_hash(table)
 

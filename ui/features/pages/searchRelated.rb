@@ -30,4 +30,6 @@ class SearchRelated
 
   li(:pageNum, :css => '.alignment li.active')
 
+  div(:nextBar, :css => '.alignment')
+
 end

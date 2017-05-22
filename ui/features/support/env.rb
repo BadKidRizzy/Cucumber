@@ -24,6 +24,8 @@ require "TestSupport"
 # require 'headless'
 
 Before do
+  StartTime ||= Time.new
+  p "***** The test start at #{Time.new} *****"
   BROWSER ||= WebDriverFactory.web_driver_factory()
   @screen_shot_option ||= WebDriverFactory.screen_shot  
   BROWSER.driver.manage.delete_cookie "cart"
@@ -41,7 +43,7 @@ end
 
 if ENV['HEADLESS']
   require 'headless'
-  p "headless     -----------------------"
+  
   headless = Headless.new
   headless.start
   at_exit do
@@ -50,7 +52,9 @@ if ENV['HEADLESS']
 end
 
 After do |scenario|
-  
+  puts "\n***** The test start at #{StartTime} *****"
+  puts "\n***** The test end at   #{Time.new} *****"
+
   if (scenario.failed? && @screen_shot_option == true)
     screenshot_name = ScreenShotName.take_screenshot_name(scenario)
 

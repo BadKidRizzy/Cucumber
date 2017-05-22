@@ -68,7 +68,7 @@ Feature: The system will display some useful information in home page
 
 
   @regression
-  Scenario: the user with an account should be able to select favorites Schools, Majors and/ or Occupations
+  Scenario: the user with an account should be able to select favorites Schools, Scholarship, Majors and/ or Occupations
     Given the user from Home Page navigate to Login Page
     And the user A register and login 
         | key              | Value           |
@@ -82,10 +82,12 @@ Feature: The system will display some useful information in home page
         | Confirm Password | Test123456      |
         | TOS CheckBox     | True            |
     When the user select favorite from top right corner
-    And user should be able to clear the favorite Schools, Majors and / or occupations
+    And user should be able to clear the favorite Schools, Scholarship, Majors and / or occupations
     
-    When the user click 5 times on favorite button
-    Then the system display it under favorite Schools, Majors or occupations
+    When the user select 5 random favorite from suggested list
+    And the user select favorite from top right corner
+    Then the system display them under Favorites section
+    And the system display the school name under Favorite Schools section
     And the user should be able to logout 
 
 

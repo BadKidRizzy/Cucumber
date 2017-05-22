@@ -1,3 +1,4 @@
+@jobsSearch
 Feature: The system display the filters options and search results for jobs
 
   Scenario: The search table results should have header Job Name, Location, Pay and Posted 

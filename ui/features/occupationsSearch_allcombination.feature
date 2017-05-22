@@ -1,4 +1,11 @@
+@occupationsSearch
 Feature: The user should be able to search for occupations
+
+  @regression
+  Scenario: The system should display 10 occupations per page by default 
+  When the user from Home Page navigate to Occupations search Page
+  And the user select "Mathematics" from STEM discipline
+  Then the system will display 10 records per page 
 
   @regression
   Scenario: The user should be able to filters the occupation search by salary and career cluster
@@ -742,7 +749,7 @@ Feature: The user should be able to search for occupations
   Scenario: The user should be able to filters the occupation search by career cluster and preparation needed
     Given the user from Home Page navigate to Occupations search Page 
     When the user select "Science, Technology, Engineering and Mathematics" from career cluster
-    And the user select "Medium preparation" from preparation needed
+    And the user select "Considerable preparation" from preparation needed
     Then the system will display the below occupation for the selected filters
 
       | Occupation Name                             |

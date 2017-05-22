@@ -45,7 +45,7 @@ Then(/^the result will only show public school\(s\) by "([^"]*)"$/) do |result_n
   WaitUtility.wait_untill_elements_size_steadied
   
   table = @page_object.searchSchoolsPage.searchResults_element
-  result = TableUtiity.colmun_case_cam(table, 1, result_name)
+  result = TableUtiity.colmun_case_cam(table, 2, result_name)
   
   unless result
     body = @page_object.searchSchoolsPage.searchResults_element.text

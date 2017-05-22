@@ -1,3 +1,4 @@
+@occupationsSearch
 Feature: The user should be able to filter the Occupations search result by Career Cluster 
 
   @smoke_test

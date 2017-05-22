@@ -155,7 +155,7 @@ When(/^the user B tries to login by just providing his password$/) do
 end
 
 Then(/^the system will not allowed user A to login$/) do
-  expect(@page_object.loginPage.login_element.enabled?).to be (false)
+  expect(@page_object.loginPage.loginError_element.visible?).to be(true), "The system should displayed error message"
 end
 
 Then(/^the system will not allowed user B to login$/) do

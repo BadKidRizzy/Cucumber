@@ -24,10 +24,10 @@ end
 
 def env_type_factory(env_type)
 	urls = {}
-	urls = urls.merge({"demo"        => "http://osdc-client-collegeprep-dev.s3-website-us-east-1.amazonaws.com"})
-	urls = urls.merge({"production"  => "http://osdc-client-collegeprep-qa.s3-website-us-east-1.amazonaws.com"})
+	urls = urls.merge({"stage"        => "https://stage.pathevoprep.com"})
+	urls = urls.merge({"production"  => "https://collegeprep.pathevo.com/home"})
 	urls = urls.merge({"test"        => "https://qaprep.pathevo.com"})
-  
+
   if urls[env_type] == nil
     puts "**** The #{env_type} environment does NOT define in the code. ****" unless env_type == ''
     puts "**** Running in the QA environment by default*****"
@@ -36,7 +36,6 @@ def env_type_factory(env_type)
     puts "**** Running the test in #{env_type.upcase} environment *****"
     urls = urls[env_type]
   end
-	
+
 	return urls
 end
-

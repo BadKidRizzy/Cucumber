@@ -1,3 +1,4 @@
+@profile
 Feature: The user should be able to login and edit the Profile - Contact
 
 Background:
@@ -66,7 +67,7 @@ Background:
       | Address Line 1        | 1233 Main St     |
       | Address Line 2        | #3045            |
       | City                  | Fairfox          |
-      | State/Province/Region | MD               |
+      | State/Province/Region | Maryland         |
       | Zip/Postal Code       | 20120            |
     And the user save the information
     Then the user will not loss the above contact information if visit "Education" page
@@ -80,43 +81,43 @@ Background:
       | Address Line 1        | 123 Main St      |
       | Address Line 2        | #304             |
       | City                  | Fairfox          |
-      | State/Province/Region | VA               |
+      | State/Province/Region | Virginia         |
       | Zip/Postal Code       | 20121            |
     And the user save the information
     Then the user will not loss the above contact information if visit "Education" page
     
 
-  Scenario: The user should be able to update and save the email address
-    When the user select "Contact" from Profile section
-    And the user edit the contact information
-      | key                   | Value            |
-      | Email address         | profile11@t.com  |
-      | Phone Number          | (703) 456-7890   |
-      | Parent Email          | parent@email.com |
-      | Country               | United States    |
-      | Address Line 1        | 123 Main St      |
-      | Address Line 2        | #304             |
-      | City                  | Fairfox          |
-      | State/Province/Region | VA               |
-      | Zip/Postal Code       | 20121            |
-    And the user save the information
-    And the user should be able to logout
+  # Scenario: The user should be able to update and save the email address
+  #   When the user select "Contact" from Profile section
+  #   And the user edit the contact information
+  #     | key                   | Value            |
+  #     | Email address         | profile11@t.com  |
+  #     | Phone Number          | (703) 456-7890   |
+  #     | Parent Email          | parent@email.com |
+  #     | Country               | United States    |
+  #     | Address Line 1        | 123 Main St      |
+  #     | Address Line 2        | #304             |
+  #     | City                  | Fairfox          |
+  #     | State/Province/Region | VA               |
+  #     | Zip/Postal Code       | 20121            |
+  #   And the user save the information
+  #   And the user should be able to logout
     
-    When the user try to login using the update email
-    And the user select "Contact" from Profile section
-    And the user edit the contact information
-      | key                   | Value            |
-      | Email address         | profile@t.com    |
-      | Phone Number          | (703) 456-7890   |
-      | Parent Email          | parent@email.com |
-      | Country               | United States    |
-      | Address Line 1        | 123 Main St      |
-      | Address Line 2        | #304             |
-      | City                  | Fairfox          |
-      | State/Province/Region | VA               |
-      | Zip/Postal Code       | 20121            |
-    And the user save the information
-    And the user should be able to logout
+  #   When the user try to login using the update email
+  #   And the user select "Contact" from Profile section
+  #   And the user edit the contact information
+  #     | key                   | Value            |
+  #     | Email address         | profile@t.com    |
+  #     | Phone Number          | (703) 456-7890   |
+  #     | Parent Email          | parent@email.com |
+  #     | Country               | United States    |
+  #     | Address Line 1        | 123 Main St      |
+  #     | Address Line 2        | #304             |
+  #     | City                  | Fairfox          |
+  #     | State/Province/Region | VA               |
+  #     | Zip/Postal Code       | 20121            |
+  #   And the user save the information
+  #   And the user should be able to logout
 
       
   

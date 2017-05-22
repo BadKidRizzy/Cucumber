@@ -1,3 +1,4 @@
+@schoolSearch
 Feature: The user should be able to filter the search result by campus setting 
 
   @smoke_test

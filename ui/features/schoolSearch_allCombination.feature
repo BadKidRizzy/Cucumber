@@ -1,5 +1,14 @@
+@schoolSearch
 Feature: The user should be able to search for school by all combination filters 
     
+@regression
+Scenario: The system should display 10 universities per page by default 
+  When the user from Home Page navigate to School search Page
+  And the user select certificate
+  And the user select HBCU
+  Then the system will display 10 records per page 
+
+
 @regression
 Scenario Outline: The user should be able to search for school by school type and award
     Given the user from Home Page navigate to School search Page

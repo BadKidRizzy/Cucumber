@@ -58,7 +58,7 @@ When(/^the user enter the education info$/) do |table|
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.profilePage.title_element.when_visible(TIME_OUT_LIMIT)
   
-  @page_object.profilePage.addItem_element.click 
+  @page_object.profilePage.addItem_element.click if @page_object.profilePage.addItem_element.visible?
 
   @enter_table_hash = get_education_table_hash(table)
 
@@ -235,13 +235,14 @@ def set_education_data(education_table_hash)
       @page_object.profilePage.endDate_element.click
       enter_profile_date(education_table_hash["end date"], "grad")
     rescue Exception => e
+      @page_object.profilePage.graduationCross_element.click if @page_object.profilePage.graduationCross_element.visible?
       @page_object.profilePage.graduationDate_element.click
       enter_profile_date(education_table_hash["end date"], "grad")
-    end
-    
+    end 
   end
 
   WaitUtility.wait_untill_elements_size_steadied
+  @page_object.profilePage.startCross_element.click if @page_object.profilePage.startCross_element.visible?
   @page_object.profilePage.startDate_element.click
   enter_profile_date(education_table_hash["start date"], "start")
 

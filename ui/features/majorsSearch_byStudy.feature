@@ -1,3 +1,4 @@
+@majorsSearch
 Feature: The user should be able to filter the major search by area of study 
 
   @smoke_test
@@ -278,10 +279,10 @@ Feature: The user should be able to filter the major search by area of study
     Then the system will display the below major name for the selected area of study 
         
         | Major name                                                 | School w/Major |
-        | Physical Science Technologies/Technicians                  | 79             |
-        | Biology Technician/Biotechnology Laboratory Technician     | 95             |
+        | Physical Science Technologies/Technicians                  | 83             |
+        | Biology Technician/Biotechnology Laboratory Technician     | 98             |
         | Science Technologies/Technicians, General                  | 5              |
-        | Nuclear and Industrial Radiologic Technologies/Technicians | 23             |
+        | Nuclear and Industrial Radiologic Technologies/Technicians | 24             |
 
 
 

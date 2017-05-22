@@ -1,3 +1,4 @@
+@schoolSearch
 Feature: The user should be able to search for school by location
 
   @smoke_test

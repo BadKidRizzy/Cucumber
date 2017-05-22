@@ -64,7 +64,7 @@ Then(/^the system will display the below occupation for the selected salary and 
   expected_result = []
 
   test_support = TestSupport.new
-  actual_result = test_support.get_values_col_for_pages(1)
+  actual_result = test_support.get_values_col_for_pages(2)
   
   table.rows.each do |occupation, i|
     expected_result = expected_result + [occupation]
@@ -124,7 +124,7 @@ Then(/^the system will display the below occupation for the selected filters$/) 
   expected_result = []
 
   test_support = TestSupport.new
-  actual_result = test_support.get_values_col_for_pages(1)
+  actual_result = test_support.get_values_col_for_pages(2)
   
   table.rows.each do |occupation, i|
     expected_result = expected_result + [occupation]

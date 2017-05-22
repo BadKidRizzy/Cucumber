@@ -5,11 +5,11 @@ When(/^the user select "([^"]*)" from preparation needed$/) do |selected_prepara
   selected_preparas.each do |selected_prepara|
   
     case selected_prepara.downcase
-    when "some preparation"
-      @page_object.searchOccupationsPage.some_element.click
     when "medium preparation"
-      @page_object.searchOccupationsPage.medium_element.click
+      @page_object.searchOccupationsPage.some_element.click
     when "considerable preparation"
+      @page_object.searchOccupationsPage.medium_element.click
+    when "extensive preparation"
       @page_object.searchOccupationsPage.considerable_element.click
     else
       fail "Please define #{selected_prepara} in your code"
@@ -24,11 +24,11 @@ When(/^the user just select "([^"]*)" from preparation needed$/) do |selected_pr
   # @page_object.searchOccupationsPage.preparationReset_element.click
   @page_object.searchRelated.resetEles_elements[3].click
   case selected_prepara.downcase
-  when "some preparation"
-    @page_object.searchOccupationsPage.some_element.click
   when "medium preparation"
-    @page_object.searchOccupationsPage.medium_element.click
+    @page_object.searchOccupationsPage.some_element.click
   when "considerable preparation"
+    @page_object.searchOccupationsPage.medium_element.click
+  when "extensive preparation"
     @page_object.searchOccupationsPage.considerable_element.click
   else
     fail "Please define #{selected_prepara} in your code"
@@ -46,11 +46,11 @@ When(/^the user select everything but "([^"]*)" from preparation needed$/) do |n
   selected_preparas.each  do |selected_prepara|
     
     case selected_prepara
-    when "some preparation"
-      @page_object.searchOccupationsPage.some_element.click
     when "medium preparation"
-      @page_object.searchOccupationsPage.medium_element.click
+      @page_object.searchOccupationsPage.some_element.click
     when "considerable preparation"
+      @page_object.searchOccupationsPage.medium_element.click
+    when "extensive preparation"
       @page_object.searchOccupationsPage.considerable_element.click
     else
       fail "Please define #{selected_prepara} in your code"
@@ -73,11 +73,11 @@ Then(/^the "([^"]*)" filter would be selected from preparation needed$/) do |sel
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
     
   case selected_prepara.downcase
-  when "some preparation"
-    actual_result = @page_object.searchOccupationsPage.somediv_element.class_name
   when "medium preparation"
-    actual_result = @page_object.searchOccupationsPage.mediumdiv_element.class_name
+    actual_result = @page_object.searchOccupationsPage.somediv_element.class_name
   when "considerable preparation"
+    actual_result = @page_object.searchOccupationsPage.mediumdiv_element.class_name
+  when "extensive preparation"
     actual_result = @page_object.searchOccupationsPage.considerablediv_element.class_name
   else
     fail "Please define #{selected_prepara} in your code"
@@ -88,15 +88,15 @@ end
 
 Then(/^the preparation needed filters should be unselected$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
-  selected_preparas = ["some preparation", "medium preparation", "considerable preparation"]
+  selected_preparas = ["extensive preparation", "medium preparation", "considerable preparation"]
   
   selected_preparas.each  do |selected_prepara|
     case selected_prepara
-    when "some preparation"
-      actual_result = @page_object.searchOccupationsPage.somediv_element.class_name
     when "medium preparation"
-      actual_result = @page_object.searchOccupationsPage.mediumdiv_element.class_name
+      actual_result = @page_object.searchOccupationsPage.somediv_element.class_name
     when "considerable preparation"
+      actual_result = @page_object.searchOccupationsPage.mediumdiv_element.class_name
+    when "extensive preparation"
       actual_result = @page_object.searchOccupationsPage.considerablediv_element.class_name
     else
       fail "Please define #{selected_prepara} in your code"
@@ -116,7 +116,7 @@ Then(/^the system will display the below occupations name for the selected prepa
   WaitUtility.wait_untill_elements_size_steadied
 
   test_support = TestSupport.new
-  actual_result = test_support.get_values_col_for_pages(1)
+  actual_result = test_support.get_values_col_for_pages(2)
 
   expected = expected_result - actual_result
   actual = actual_result - expected_result

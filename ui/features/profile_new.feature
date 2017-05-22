@@ -1,3 +1,4 @@
+@profile
 Feature: The user should be able to login and edit the Profile  
   
   @smoke_test

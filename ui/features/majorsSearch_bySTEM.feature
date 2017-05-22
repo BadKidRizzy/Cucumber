@@ -1,3 +1,4 @@
+@majorsSearch
 Feature: The user should be able to filter the major search by STEM discipline
 
   @smoke_test
@@ -191,8 +192,8 @@ Feature: The user should be able to filter the major search by STEM discipline
     Then the system will display the below major name for the selected STEM discipline
       | Major name          | School w/Major |
       | Mathematics         | 1,000          |
-      | Statistics          | 165            |
-      | Applied Mathematics | 293            |
+      | Statistics          | 167            |
+      | Applied Mathematics | 302            |
 
 
   Scenario: The system should provide "Multi-disciplinary" filters for STEM discipline

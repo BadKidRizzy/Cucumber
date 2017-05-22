@@ -1,3 +1,4 @@
+@schoolSearch
 Feature: The user should be able to filter the search result by school type 
 
   @smoke_test
@@ -16,8 +17,8 @@ Feature: The user should be able to filter the search result by school type
     When the user select public
     And the user search for the university by "<Full name>"
     Then the result will only show public school(s) by "<Full name>"
-    When the user select private
-    Then the result will not show public school(s) by "<Full name>"
+    #When the user select private
+    #Then the result will not show public school(s) by "<Full name>"
 
   Examples: 
     | Full name                        |

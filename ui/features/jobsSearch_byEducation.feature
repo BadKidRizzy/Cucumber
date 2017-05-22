@@ -1,3 +1,4 @@
+@jobsSearch
 Feature: The user should be able to filter the search result by required education
 
   Scenario: The system should provide "not specified", "none", "high school", "associate's degree", "bachelor's degree", "graduate degree", and "doctorate" filters and a reset for education 

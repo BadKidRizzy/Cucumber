@@ -24,7 +24,7 @@ When(/^the user enter the test data$/) do |table|
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.profilePage.title_element.when_visible(TIME_OUT_LIMIT)
 
-  @page_object.profilePage.addItem_element.click 
+  @page_object.profilePage.addItem_element.click if @page_object.profilePage.addItem_element.visible?
 
   @enter_table_hash = get_test_table_hash(table)
 
@@ -182,7 +182,7 @@ def set_test_data(test_table_hash)
   @page_object.profilePage.testType = test_table_hash["test"]
   WaitUtility.wait_untill_elements_size_steadied
 
-  @page_object.profilePage.testSubject = test_table_hash["subject"]
+  @page_object.profilePage.testSubject = test_table_hash["subject"] unless test_table_hash["test"].downcase == "act"
   WaitUtility.wait_untill_elements_size_steadied
 
   @page_object.profilePage.scoreTest = test_table_hash["score"]

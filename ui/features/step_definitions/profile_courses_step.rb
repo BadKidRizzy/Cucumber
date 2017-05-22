@@ -9,7 +9,7 @@ When(/^the user select edit course$/) do
   @page_object.profilePage.title_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
 
-  @page_object.profilePage.edit_element.click 
+  @page_object.profilePage.edit_element.click
 end
 
 When(/^the courses record will be removed$/) do
@@ -30,7 +30,7 @@ When(/^the user enter the courses info$/) do |table|
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.profilePage.title_element.when_visible(TIME_OUT_LIMIT)
   
-  @page_object.profilePage.addItem_element.click 
+  @page_object.profilePage.addItem_element.click if @page_object.profilePage.addItem_element.visible?
 
   @enter_table_hash = get_courses_table_hash(table)
 

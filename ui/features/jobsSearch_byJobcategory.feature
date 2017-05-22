@@ -1,3 +1,4 @@
+@jobsSearch
 Feature: The user should be able to search for job by Job Category
 
   Scenario: The system should provide Job Category as drop-down 

@@ -126,7 +126,7 @@ Then(/^the system will display the below occupations name for the selected outlo
   WaitUtility.wait_untill_elements_size_steadied
 
   test_support = TestSupport.new
-  actual_result = test_support.get_values_col_for_pages(1)
+  actual_result = test_support.get_values_col_for_pages(2)
 
   expected = expected_result - actual_result
   actual = actual_result - expected_result

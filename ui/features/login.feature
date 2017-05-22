@@ -5,7 +5,7 @@ Background:
     | key              | Value           |
     | First name       | Jem             |
     | Last name        | Dell            |
-    | Email address    | login_b111@gmail.com |
+    | Email address    | login_A@gmail.com |
     | Birth Month      | June            |
     | Birth Day        | 22              |
     | Birth Year       | 2001            |
@@ -17,7 +17,7 @@ Background:
     | key              | Value           |
     | First name       | Bob             |
     | Last name        | Zad             |
-    | Email address    | login_b2@gmail.com|
+    | Email address    | login_B@gmail.com|
     | Birth Month      | June            |
     | Birth Day        | 22              |
     | Birth Year       | 2001            |
@@ -25,7 +25,7 @@ Background:
     | Confirm Password | Test654321      |
     | TOS CheckBox     | True            |
 
-  @smoke_test  
+  @regression 
   Scenario: The user A should be able to login and logout after create a new account 
     Given the user from Home Page navigate to Login Page
     When the user A register and login with above registration information

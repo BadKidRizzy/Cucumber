@@ -49,7 +49,7 @@ Then(/^the user will not loss the above contact information if visit "([^"]*)" p
 end
 
 def contact_data_entry(expected_entry_data)
-  @page_object.profilePage.email = expected_entry_data["Email address"]
+  # @page_object.profilePage.email = expected_entry_data["Email address"]
   @page_object.profilePage.phone = expected_entry_data["Phone Number"]
 
   @page_object.profilePage.parentEmail = expected_entry_data["Parent Email"]
@@ -63,11 +63,11 @@ def contact_data_entry(expected_entry_data)
 end
 
 def check_contact_data(expected_entry_data, matched)
-  expect(@page_object.profilePage.email == expected_entry_data["Email address"]).to eq(matched)
+  # expect(@page_object.profilePage.email == expected_entry_data["Email address"]).to eq(matched)
   expect(@page_object.profilePage.phone == expected_entry_data["Phone Number"]).to eq(matched)
   expect(@page_object.profilePage.parentEmail == expected_entry_data["Parent Email"]).to eq(matched)
   
-  expect(@page_object.profilePage.citizenship_element.text == expected_entry_data["Country"]).to eq(matched)
+  expect(@page_object.profilePage.citizenship_element.text.gsub("\n✕", "") == expected_entry_data["Country"]).to eq(matched)
 
   expect(@page_object.profilePage.address1 == expected_entry_data["Address Line 1"]).to eq(matched) 
   expect(@page_object.profilePage.address2 == expected_entry_data["Address Line 2"]).to eq(matched)

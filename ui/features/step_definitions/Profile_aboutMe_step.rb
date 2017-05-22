@@ -189,7 +189,7 @@ def check_about_me_data(expected_entry_data, matched)
   expect(@page_object.profilePage.birthDay == expected_entry_data["Birth Day"]).to eq(matched)
   expect(@page_object.profilePage.birthYear == expected_entry_data["Birth Year"]).to eq(matched)
 
-  expect(@page_object.profilePage.citizenship_element.text == expected_entry_data["Citizenship"]).to eq(matched)
+  expect(@page_object.profilePage.citizenship_element.text.gsub("\n✕", "") == expected_entry_data["Citizenship"]).to eq(matched)
 
   expect(@page_object.profilePage.ethnicity == expected_entry_data["Ethnicity"]).to eq(matched)
   expect(@page_object.profilePage.race == expected_entry_data["Race"]).to eq(matched)

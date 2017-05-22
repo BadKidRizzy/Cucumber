@@ -13,6 +13,14 @@ Then(/^the system will display (\d+) universities per page in Rank ascending ord
   expect(test_support.check_ascending_sort(result)).to be(true), "#{error_msg}\nExpected:\n#{result.sort}\nGot:\n#{result}"
 end
 
+Then(/^the system will display 10 records per page$/) do 
+  WaitUtility.wait_untill_elements_size_steadied
+  @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
+  test_support = TestSupport.new
+    
+  test_support.check_row_per_page
+end
+
 Then(/^the system will display (\d+) universities per page in ascending order$/) do |per_page|
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
@@ -68,7 +76,9 @@ Then(/^the system will display the result\(s\) that exact match "([^"]*)"$/) do 
     fail "Expected: #{search_name} \n Got: No result matched or found \n result(s): \n #{body}"
   end
   
-  expect(table_cell.text.upcase).to eq search_name.upcase
+  table_cell = table_cell.text.upcase
+  table_cell = table_cell.split("\n")[0]
+  expect(table_cell).to eq search_name.upcase
 end
 
 Then(/^the exact matching school by "([^"]*)" will be at the top of the search result$/) do |search_name|
@@ -157,7 +167,7 @@ def find_if_there_is_match(search_name, result_name)
   WaitUtility.wait_untill_elements_size_steadied
 
   table_element = @page_object.searchSchoolsPage.searchResults_element
-  result = TableUtiity.colmun_case_cam(table_element, 1, result_name)
+  result = TableUtiity.colmun_case_cam(table_element, 2, result_name)
   
   unless result
     body = @page_object.searchSchoolsPage.searchResults_element.text

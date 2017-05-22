@@ -128,7 +128,7 @@ Then(/^the system will display the below major name for the selected STEM discip
   expected_result = []
 
   test_support = TestSupport.new
-  actual_result = test_support.get_values_of_2col_for_pages(1, 3)
+  actual_result = test_support.get_values_of_2col_for_pages(2, 3)
   
   table.rows.each do |major, school|
     expected_result = expected_result + [major + ";" + school]

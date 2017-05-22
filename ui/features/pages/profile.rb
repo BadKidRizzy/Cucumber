@@ -54,7 +54,7 @@ class ProfilePage
   text_field(:address1, :css => '#address-1')
   text_field(:address2, :css => '#address-2')
   text_field(:city, :css => '#city')
-  text_field(:state, :css => '#state')
+  select_list(:state, :css => '#state')
   text_field(:zip, :css => '#zip')
   
   # Setting --------
@@ -89,6 +89,8 @@ class ProfilePage
   text_field(:startDate, :css => '#Start-Date')
   text_field(:graduationDate, :css => '#Graduation-Date')
   text_field(:endDate, :css => '#End-Date')
+  link(:startCross, :css => '[label="Start Date"] a')
+  link(:graduationCross, :css => '.col-sm-4 ~ .col-sm-4 a')
 
   text_field(:uwGpa, :css => '#uw-gpa')
   text_field(:wGpa, :css => '#w-gpa')
@@ -101,15 +103,15 @@ class ProfilePage
   button(:yearLeftStart, :css => '.pull-left')
 
   
-  table(:dateTableGard, :css => ".col-sm-5 ~ .col-sm-5 [role='grid']")
-  strong(:yearTextGrad, :css => '.col-sm-5 ~ .col-sm-5 .mt5 strong')
-  button(:yearRightGrad, :css => '.col-sm-5 ~ .col-sm-5 .calendar .pull-right')                        
-  button(:yearLeftGrad, :css => '.col-sm-5 ~ .col-sm-5 .pull-left')
+  table(:dateTableGard, :css => ".col-sm-4 ~ .col-sm-4 [role='grid']")
+  strong(:yearTextGrad, :css => '.col-sm-4 ~ .col-sm-4 .mt5 strong')
+  button(:yearRightGrad, :css => '.col-sm-4 ~ .col-sm-4 .calendar .pull-right')                        
+  button(:yearLeftGrad, :css => '.col-sm-4 ~ .col-sm-4 .pull-left')
 
-  table(:dateTableEnd, :css => ".col-sm-5 ~ .col-sm-5 ~ [role='grid']")
-  strong(:yearTextEnd, :css => '.col-sm-5 ~ .col-sm-5 .mt5 strong')
-  button(:yearRightEnd, :css => '.col-sm-5 ~ .col-sm-5 .calendar .pull-right')                       
-  button(:yearLeftEnd, :css => '.col-sm-5 ~ .col-sm-5 .pull-left')
+  table(:dateTableEnd, :css => ".col-sm-4 ~ .col-sm-4 ~ [role='grid']")
+  strong(:yearTextEnd, :css => '.col-sm-4 ~ .col-sm-4 .mt5 strong')
+  button(:yearRightEnd, :css => '.col-sm-4 ~ .col-sm-4 .calendar .pull-right')                       
+  button(:yearLeftEnd, :css => '.col-sm-4 ~ .col-sm-4 .pull-left')
 
   i(:edit, :css => '.icon.icon-new-message')
   button(:cancel, :text => 'Cancel')

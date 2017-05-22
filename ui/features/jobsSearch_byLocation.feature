@@ -1,3 +1,4 @@
+@jobsSearch
 Feature: The user should be able to search for job by location
 
   Scenario: The system should provide Zip, City and State filter and reset for the location  

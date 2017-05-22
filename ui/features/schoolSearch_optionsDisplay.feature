@@ -1,3 +1,4 @@
+@schoolSearch
 @smoke_test
 Feature: The system display the filters options and search results
 

@@ -1,3 +1,4 @@
+@jobsSearch
 Feature: The user should be able to filter the search result by salary 
 
 

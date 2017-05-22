@@ -32,7 +32,7 @@ Then(/^the favorites button should be disable$/) do
     message = e.to_s
     result = false if message.include? 'disabled="false"'
   end
-  p result
+  
   expect(result).to eq(true), "The user did not login the favorite button should be disabled"
 end
 
@@ -239,8 +239,25 @@ When(/^the user click (\d+) times on favorite button$/) do |times|
   for i in 1..times.to_i
     card_title_text = @page_object.homePage.cardTitle_element.text
     @old_title_text = @old_title_text + [card_title_text] unless card_title_text.empty?
-  
-    @page_object.homePage.favoriteBut_element.click
+    
+    WaitUtility.wait_untill_elements_size_steadied
+    @page_object.homePage.favoriteBut_element.when_visible(TIME_OUT_LIMIT).click
+  end
+end
+
+When(/^the user select (\d+) random favorite from suggested list$/) do |times|
+  WaitUtility.wait_untill_elements_size_steadied
+  @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
+  @old_title_text = []
+  for i in 1..times.to_i 
+    WaitUtility.wait_untill_elements_size_steadied
+    @page_object.homePage.favoriteBut_element.when_visible(TIME_OUT_LIMIT)
+
+    card_title_text = @page_object.homePage.cardTitle_element.text
+    @old_title_text = @old_title_text + [card_title_text] unless card_title_text.empty?
+    
+    WaitUtility.wait_untill_elements_size_steadied
+    @page_object.homePage.favoriteBut_element.when_visible(TIME_OUT_LIMIT).click
   end
 end
 
@@ -292,9 +309,22 @@ When(/^the user select favorite from top right corner$/) do
   @page_object.homePage.favoriteStarMenu_element.click
 end
 
-When(/^user should be able to clear the favorite Schools, Majors and \/ or occupations$/) do
+When(/^user should be able to clear the favorite Schools, Scholarship, Majors and \/ or occupations$/) do
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
+  favorite_exist = true
+  
+  while favorite_exist
+    if @page_object.homePage.favoriteStarTable_element.visible?
+      @page_object.homePage.favoriteStarTable_element.click
+      WaitUtility.wait_untill_elements_size_steadied
+    else
+      favorite_exist = false
+    end
+  end
+
+  @page_object.homePage.scholarshipsMenu_element.click
+  WaitUtility.wait_untill_elements_size_steadied
   favorite_exist = true
   
   while favorite_exist
@@ -334,6 +364,68 @@ When(/^user should be able to clear the favorite Schools, Majors and \/ or occup
 
   @page_object.homePage.favoriteStarMenu_element.click
 
+end
+
+When(/^the system display them under Favorites section$/) do
+  WaitUtility.wait_untill_elements_size_steadied
+  @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
+  actual_result = []
+  new_results = []
+
+  for i in 1..4  do
+    @page_object.homePage.schoolsMenu_element.click if i == 1
+    @page_object.homePage.scholarshipsMenu_element.click if i == 2
+    @page_object.homePage.majorsMenu_element.click if i == 3
+    @page_object.homePage.occupationsMenu_element.click if i == 4
+    WaitUtility.wait_untill_elements_size_steadied
+
+    @page_object.homePage.listGroupTopFavorites_element.when_visible(TIME_OUT_LIMIT)
+    result = @page_object.homePage.listGroupTopFavorites_element.text
+    
+    if result.include? "You haven't added any favorites yet."
+      results =[]
+    else
+      results = result.split("\n")
+    end
+    
+    if (i == 1) && (results !=[]) 
+      odd_index = 1
+      for i in 1..results.size do 
+        if i == odd_index
+          new_results = new_results + [results[i-1]]
+          odd_index += 2
+        end 
+      end
+      results = new_results
+      @school_favorites = new_results
+    end
+    
+    
+    actual_result = actual_result + results
+  end
+
+  @page_object.homePage.favoriteStarMenu_element.click
+  
+  expect(actual_result).to match_array(@old_title_text)
+end
+
+When(/^the system display the school name under Favorite Schools section$/) do
+  WaitUtility.wait_untill_elements_size_steadied
+  @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
+
+  actual_result = @page_object.homePage.listGroupFavoriteSchools_element.text
+  
+  if actual_result == ''
+    expect(@school_favorites).to eq(nil)
+  else
+    actual_result = actual_result.gsub("Consider\nWill Apply\nWill Not Apply\nApplied\nAccepted\nDenied\nWait listed\nAttending\n", "")
+    actual_result = actual_result.split("\n")
+    actual_result = actual_result.compact.collect(&:strip)
+    actual_result = actual_result.reject{ |e| e.empty? }
+
+    expect(actual_result).to match_array(@school_favorites)
+  end
+  
 end
 
 

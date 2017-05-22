@@ -41,7 +41,7 @@ Then(/^the system will display the below occupations name for the selected caree
   expected_result = expected_result.split("\n").map(&:strip)
 
   test_support = TestSupport.new
-  actual_result = test_support.get_values_col_for_pages(1)
+  actual_result = test_support.get_values_col_for_pages(2)
 
   actual = actual_result - expected_result
   expected = expected_result - actual_result

@@ -1,3 +1,4 @@
+@occupationsSearch
 Feature: The user should be able to filter the search result by outlook
 
   @smoke_test

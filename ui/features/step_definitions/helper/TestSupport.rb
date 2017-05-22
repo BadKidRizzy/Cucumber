@@ -6,6 +6,11 @@ class TestSupport
     @page_num_movment_old ||= 1
     @page_num_movment_index ||= 1
     # check_page_num_movement?
+    # begin
+    #   @page_object.searchRelated.nextBar_elementwhen_visible(TIME_OUT_LIMIT)
+    # rescue Exception => e
+    #   fail "The pahe number bar is not displayed"
+    # end
     
     next_butn =  @page_object.searchSchoolsPage.next_element
     next_butn_dis =  @page_object.searchSchoolsPage.nextDisabled_element
@@ -49,15 +54,20 @@ class TestSupport
      
       WaitUtility.wait_untill_elements_size_steadied
        
-      fail "Expected results per page:#{Per_Page} \n Got: #{per_page} " if (per_page < Per_Page) && (!next_disable?)
+      # fail "Expected results per page:#{Per_Page} \n Got: #{per_page} " if (per_page < Per_Page) && (!next_disable?)
 
-      # if (per_page == Per_Page) || (!next_disable?)
       if (!next_disable?)
         if (page_num.upcase != 'ALL') && (p_n == page_num.to_i)
           next_page_exist = false 
         else
           check_page_num_movement?
-          @page_object.searchSchoolsPage.next_element.when_present(TIME_OUT_LIMIT).click
+          
+          begin
+            @page_object.searchSchoolsPage.next_element.when_present(TIME_OUT_LIMIT).click
+          rescue Exception => e
+            e_message = e.to_s
+            next_page_exist = false if e_message.include? "is not clickable at point"
+          end
           
           WaitUtility.wait_untill_elements_size_steadied
         end
@@ -88,7 +98,7 @@ class TestSupport
      
       WaitUtility.wait_untill_elements_size_steadied
        
-      fail "Expected results per page:#{Per_Page} \n Got: #{per_page} " if (per_page < Per_Page) && (!next_disable?)
+      # fail "Expected results per page:#{Per_Page} \n Got: #{per_page} " if (per_page < Per_Page) && (!next_disable?)
 
       # if (per_page == Per_Page) || (!next_disable?)
       if (!next_disable?)
@@ -180,6 +190,44 @@ class TestSupport
     per_page = return_result.size-1
     ascending_result = return_result.sort_by{|n| [n[1],n[0]]}
     ascending_result
+  end
+
+  def check_row_per_page(page_num='ALL')
+    sleep 5
+    @page_object = PageObjectHomeRelated.new(BROWSER)
+    return_result =[]
+    next_page_exist = true
+    p_n = 1
+    while next_page_exist
+      table = @page_object.searchSchoolsPage.searchResults_element
+      per_page = table.rows-1
+      # p "***** Wait .... Reading the results ****"
+      p "Page Number: #{p_n}"
+     
+      WaitUtility.wait_untill_elements_size_steadied
+       
+      fail "Expected results per page:#{Per_Page}\nGot: #{per_page}\nwhen the Next button is visible" if (per_page < Per_Page) && (!next_disable?)
+
+      if (!next_disable?)
+        if (page_num.upcase != 'ALL') && (p_n == page_num.to_i)
+          next_page_exist = false 
+        else
+          check_page_num_movement?
+          
+          begin
+            @page_object.searchSchoolsPage.next_element.when_present(TIME_OUT_LIMIT).click
+          rescue Exception => e
+            e_message = e.to_s
+            next_page_exist = false if e_message.include? "is not clickable at point"
+          end
+          
+          WaitUtility.wait_untill_elements_size_steadied
+        end
+      else
+        next_page_exist = false
+      end
+      p_n +=1
+    end
   end
   
 end

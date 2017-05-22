@@ -1,4 +1,4 @@
-@smoke_test
+@smoke_test, @majorsSearch
 Feature: The system display the filters options and search results for majors
   
   Scenario: The search table results should have header Major Name and Schools w/ Major

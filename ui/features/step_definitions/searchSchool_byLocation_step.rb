@@ -75,8 +75,8 @@ Then(/^the system display "([^"]*)" on top left under search box$/) do |expected
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
 
-  expect(@page_object.searchSchoolsPage.firstSelected_element.visible?).to be(true), "The #{expected_result} did not displayed."
-  result = @page_object.searchSchoolsPage.firstSelected_element.text 
+  expect(@page_object.searchRelated.firstSelected_element.visible?).to be(true), "The #{expected_result} did not displayed."
+  result = @page_object.searchRelated.firstSelected_element.text 
   expect(result.upcase).to eq(expected_result.upcase), "Expected: #{expected_result} \nGot: #{result}"
 end
 

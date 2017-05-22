@@ -1,3 +1,4 @@
+@schoolSearch
 Feature: The user should be able to search for school by School Name
 
 @smoke_test
@@ -17,8 +18,8 @@ Examples:
   | George Mason University         | Mason        | GMU               |
   | James Madison University        | Madison      | JMU               |
   | York College                    | York         | Yk                |
-  | Bowling Green State University  | Green State  | BGSU              | 
-  | Avila College                   |              | Avila             |
+  | Bowling Green State University-Firelands  | Green State  | BGSU  | 
+  | Avila University                |              | Avila             |
 
 Scenario Outline: The system will display precise matching school name at the top if user search for school by full name 
     Given the user from Home Page navigate to School search Page

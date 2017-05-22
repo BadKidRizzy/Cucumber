@@ -1,3 +1,4 @@
+@profile
 Feature: The user with an account should be able to save tests data
 
   Background: The user with an account 
@@ -186,11 +187,11 @@ Feature: The user with an account should be able to save tests data
     And the user save the information
 
     When the user edit the test info
-      | key       | Value   |
-      | Test      | ACT     |
-      | Subject   | Reading |
-      | Test date | 06/2014 |
-      | Score     | 35      |
+      | key       | Value     |
+      | Test      | ACT       |
+      | Subject   | composite |
+      | Test date | 06/2014   |
+      | Score     | 35        |
     
     And the user save the information
     Then the user will not loss the above modification test
@@ -227,10 +228,10 @@ Feature: The user with an account should be able to save tests data
     And the user delete all Profile data record
     And the user enter the test data
       | key       | Value   |
-      | Test      | ACT     |
-      | Subject   | Reading |
+      | Test      | AP      |
+      | Subject   | Biology |
       | Test date | 06/2014 |
-      | Score     | 35      |
+      | Score     | 3.5     |
     
     And the user save the information
     And the user select edit course

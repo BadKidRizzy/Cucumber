@@ -162,18 +162,18 @@ Feature: The system will provide the user Notes option with schools, majors and 
     And the user delete all existing note
     
     When the user add and save note(s)
-      | note title          | note body     | 
-      | School title        | School body   |
+      | note title            | note body         | 
+      | School title test     | School body test  |
       
     And the user visit Academic page and return back
-    Then the system should displayed "School title" and "School body" under notes
+    Then the system should displayed "School title test" and "School body test" under notes
 
     When the user delete all existing note
     Then the delete note button would be disabled 
 
 
   @regression
-  Scenario: the user should be loss the note data when it is not save
+  Scenario: the user should loss the note data when navigate to another page without saving 
     Given the user from Home Page navigate to School search Page
     And the user select a university
     
@@ -181,8 +181,8 @@ Feature: The system will provide the user Notes option with schools, majors and 
     And the user delete all existing note
     
     When the user add but did not save note
-      | note title          | note body     | 
-      | School title        | School body   |
+      | note title            | note body         | 
+      | School title test     | School body test  |
       
     And the user visit Academic page and return back
     Then the user should loss the note data

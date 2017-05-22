@@ -1,3 +1,4 @@
+@profile
 Feature: The user with an account should be able to save courses data
 
   Background: The user with an account 

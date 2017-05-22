@@ -1,4 +1,11 @@
+@majorsSearch
 Feature: The user should be able to search for major
+
+  @regression
+  Scenario: The system should display 10 majors per page by default 
+  When the user from Home Page navigate to Majors search Page
+  And the user select Multi-disciplinary
+  Then the system will display 10 records per page 
 
 
   Scenario: The user should be able to filters the major search by area of study and STEM discipline 

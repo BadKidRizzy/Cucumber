@@ -12,8 +12,11 @@ class TableUtiity
         error_msg = "Unable to locate element, using {:index=>#{i} :table size=> #{per_page} \n result(s): \n #{body}"
         fail error_msg
       end
-      # return true if table_cell == expected_name.upcase
+      
+      table_cell = table_cell.split("\n")[0] if column_number == 2
+        
       return true if table_cell.casecmp(expected_name) == 0
+
     end
   	return false
   end

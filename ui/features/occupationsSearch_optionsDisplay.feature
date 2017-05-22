@@ -1,4 +1,4 @@
-@smoke_test
+@smoke_test, @occupationsSearch
 Feature: The system display the filters options and search results for occupations
 
   Scenario: The search table results should have header Occupation Name, Prep., Outlook and Average ​​​Salary 

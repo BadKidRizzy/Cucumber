@@ -15,7 +15,7 @@ class HomePage
 
   # div(:favoriteButDis, :css => ".need-login")
   link(:ignoreBut, :css => '.dismiss-btn.clickable')
-  link(:favoriteBut, :css => '.fave-btn.clickable')
+  i(:favoriteBut, :css => '.icon.grunticon-star-outline')
 
   link(:schools, :css => '.nav-link')
   link(:majors, :css => '.nav-item ~ .nav-item > .nav-link')
@@ -25,7 +25,8 @@ class HomePage
   span(:majorsA, :css => '.nav-item ~ .nav-item  .nav-link  > span')
   span(:occupationsA, :css => '.nav-item ~ .nav-item ~ .nav-item .nav-link  > span')
 
-  ul(:listGroup, :css => '.list-group.favorites')
+  ul(:listGroupTopFavorites, :css => '.list-group')
+  ul(:listGroupFavoriteSchools, :css => '.list-unstyled')
 
   button(:searchBut, :css => '.list-group.favorites .btn.btn-default')
 
@@ -34,11 +35,13 @@ class HomePage
   strong(:newsHeading, :css => '.news-heading')
   p(:readMore, :css => '.news-more')
 
-  i(:favoriteStarMenu, :css => '.grunticon-star.clickable.icons-link')
+  i(:favoriteStarMenu, :css => ".grunticon-star.icons-link")
   i(:favoriteStarTable, :css => '.fav .clickable.grunticon-star')
 
   link(:schoolsMenu, :css => '.nav-item .nav-link')
-  link(:majorsMenu, :css => '.nav-item ~ .nav-item  .nav-link')
-  link(:occupationsMenu, :css => '.nav-item ~ .nav-item ~ .nav-item .nav-link')
+  link(:scholarshipsMenu, :css => '.nav-item ~ .nav-item  .nav-link')
+  link(:majorsMenu, :css => '.nav-item ~ .nav-item ~ .nav-item .nav-link')
+  link(:occupationsMenu, :css => '.nav-item ~ .nav-item ~ .nav-item ~ .nav-item .nav-link')
+  
 
 end
