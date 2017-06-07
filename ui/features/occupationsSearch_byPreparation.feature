@@ -4,20 +4,20 @@ Feature: The user should be able to filter the search result by preparation need
   @smoke_test
   Scenario: The system should provide Some, Medium, Considerable preparation filters and a reset for preparation needed
     Given the user from Home Page navigate to Occupations search Page
-    When the user select "Some preparation" from preparation needed
-    Then the "Some preparation" filter would be selected from preparation needed
-
     When the user select "Medium preparation" from preparation needed
     Then the "Medium preparation" filter would be selected from preparation needed
 
     When the user select "Considerable preparation" from preparation needed
-    Then the "Some preparation" filter would be selected from preparation needed
+    Then the "Considerable preparation" filter would be selected from preparation needed
+
+    When the user select "Extensive preparation" from preparation needed
+    Then the "Medium preparation" filter would be selected from preparation needed
 
     When the user select the preparation needed reset button
     Then the preparation needed filters should be unselected
 
   @regression
-  Scenario: The system should provide same name for Medium, Considerable and Extensive preparation filters when hover over or select that filter 
+  Scenario: The system should provide same name for Medium, Considerable and Extensive preparation filters when hover over or select that filter
     Given the user from Home Page navigate to Occupations search Page
     When the user select "Medium preparation" from preparation needed
     Then the "Medium Preparation Needed" should display under the search bar
@@ -30,7 +30,7 @@ Feature: The user should be able to filter the search result by preparation need
     And the user select "Extensive preparation" from preparation needed
     Then the "Extensive Preparation Needed" should display under the search bar
 
-    
+
   @regression
   Scenario: The system should provide "Medium preparation" filter for preparation needed
     Given the user from Home Page navigate to Occupations search Page
@@ -377,13 +377,13 @@ Feature: The user should be able to filter the search result by preparation need
 
     When the user select everything but "Some preparation" from preparation needed
     Then the result will not display the "<Occupation Name>" for the selected preparation needed
-    
-    Examples: 
+
+    Examples:
       | Occupation Name                      |
       | Nuclear Power Reactor Operators       |
       | Forest and Conservation Technicians   |
       | Forest and Conservation Workers       |
-      | Ophthalmic Medical Technicians        |      
+      | Ophthalmic Medical Technicians        |
       | Hazardous Materials Removal Workers   |
       | Computer User Support Specialists     |
       | Electrical Engineering Technicians    |
@@ -397,8 +397,8 @@ Feature: The user should be able to filter the search result by preparation need
 
     When the user select everything but "Medium preparation" from preparation needed
     Then the result will not display the "<Occupation Name>" for the selected preparation needed
-    
-    Examples: 
+
+    Examples:
       | Occupation Name      |
       | Mechanical Engineers  |
       | Validation Engineers  |
@@ -414,7 +414,7 @@ Feature: The user should be able to filter the search result by preparation need
 
     When the user select everything but "Considerable preparation" from preparation needed
     Then the result will not display the "<Occupation Name>" for the selected preparation needed
-    
+
     Examples:
         | Occupation Name         |
         | Nurse Anesthetists       |
@@ -422,7 +422,3 @@ Feature: The user should be able to filter the search result by preparation need
         | Fuel Cell Engineers      |
         | Industrial Ecologists    |
         | Nurse Practitioners      |
-
-
-
- 

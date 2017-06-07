@@ -9,14 +9,14 @@ end
 Then(/^the Assessments section will display$/) do
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.homePage.assessments_element.when_visible(TIME_OUT_LIMIT)
-   
+
   expect(@page_object.homePage.assessments_element.text).to eq("Assessments")
 end
 
 Then(/^the Highlights section will display$/) do
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.homePage.highlights_element.when_visible(TIME_OUT_LIMIT)
-   
+
   expect(@page_object.homePage.highlights_element.text).to eq("Highlights")
 end
 
@@ -32,7 +32,7 @@ Then(/^the favorites button should be disable$/) do
     message = e.to_s
     result = false if message.include? 'disabled="false"'
   end
-  
+
   expect(result).to eq(true), "The user did not login the favorite button should be disabled"
 end
 
@@ -43,11 +43,8 @@ Then(/^the X button should be click\-able$/) do
 
   begin
       @page_object.homePage.ignoreBut_element.click
-      result = true
-    rescue Exception => e
-      result = false
-    end
-    expect(result).to eq(true), "The X button should be click-able"
+
+  end
 end
 
 When(/^the user click X button in Favorites section$/) do
@@ -64,7 +61,7 @@ Then(/^the system will display new selection in Favorites section$/) do
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
 
   new_title_text = @page_object.homePage.cardTitle_element.text
-  
+
   fail "The card title should be change when the user click X button" if new_title_text == @old_title_text
 end
 
@@ -123,9 +120,9 @@ end
 
 Then(/^the system navigate the user to Search "([^"]*)" page$/) do |name|
   WaitUtility.wait_untill_elements_size_steadied
-  
+
   url_name =  browser_page_url = BROWSER.url.split('?')[0]
-  
+
   fail "The user should be navigate to #{name} page" unless url_name.downcase.include? name.downcase
 end
 
@@ -239,7 +236,7 @@ When(/^the user click (\d+) times on favorite button$/) do |times|
   for i in 1..times.to_i
     card_title_text = @page_object.homePage.cardTitle_element.text
     @old_title_text = @old_title_text + [card_title_text] unless card_title_text.empty?
-    
+
     WaitUtility.wait_untill_elements_size_steadied
     @page_object.homePage.favoriteBut_element.when_visible(TIME_OUT_LIMIT).click
   end
@@ -249,13 +246,13 @@ When(/^the user select (\d+) random favorite from suggested list$/) do |times|
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
   @old_title_text = []
-  for i in 1..times.to_i 
+  for i in 1..times.to_i
     WaitUtility.wait_untill_elements_size_steadied
     @page_object.homePage.favoriteBut_element.when_visible(TIME_OUT_LIMIT)
 
     card_title_text = @page_object.homePage.cardTitle_element.text
     @old_title_text = @old_title_text + [card_title_text] unless card_title_text.empty?
-    
+
     WaitUtility.wait_untill_elements_size_steadied
     @page_object.homePage.favoriteBut_element.when_visible(TIME_OUT_LIMIT).click
   end
@@ -272,7 +269,7 @@ Then(/^the system display it under favorite Schools, Majors or occupations$/) do
   else
     result1 = result1.split("\n")
   end
- 
+
   @page_object.homePage.majorsA_element.click
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
@@ -284,7 +281,7 @@ Then(/^the system display it under favorite Schools, Majors or occupations$/) do
   else
     result2 = result2.split("\n")
   end
-   
+
   @page_object.homePage.occupationsA_element.click
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
@@ -298,14 +295,14 @@ Then(/^the system display it under favorite Schools, Majors or occupations$/) do
   end
 
   results = result1 + result2 + result3
-  
+
   expect(results - @old_title_text).to eq(@old_title_text - results)
 end
 
 When(/^the user select favorite from top right corner$/) do
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
-  
+
   @page_object.homePage.favoriteStarMenu_element.click
 end
 
@@ -313,7 +310,7 @@ When(/^user should be able to clear the favorite Schools, Scholarship, Majors an
   WaitUtility.wait_untill_elements_size_steadied
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
   favorite_exist = true
-  
+
   while favorite_exist
     if @page_object.homePage.favoriteStarTable_element.visible?
       @page_object.homePage.favoriteStarTable_element.click
@@ -326,7 +323,7 @@ When(/^user should be able to clear the favorite Schools, Scholarship, Majors an
   @page_object.homePage.scholarshipsMenu_element.click
   WaitUtility.wait_untill_elements_size_steadied
   favorite_exist = true
-  
+
   while favorite_exist
     if @page_object.homePage.favoriteStarTable_element.visible?
       @page_object.homePage.favoriteStarTable_element.click
@@ -339,7 +336,7 @@ When(/^user should be able to clear the favorite Schools, Scholarship, Majors an
   @page_object.homePage.majorsMenu_element.click
   WaitUtility.wait_untill_elements_size_steadied
   favorite_exist = true
-  
+
   while favorite_exist
     if @page_object.homePage.favoriteStarTable_element.visible?
       @page_object.homePage.favoriteStarTable_element.click
@@ -352,7 +349,7 @@ When(/^user should be able to clear the favorite Schools, Scholarship, Majors an
   @page_object.homePage.occupationsMenu_element.click
   WaitUtility.wait_untill_elements_size_steadied
   favorite_exist = true
-  
+
   while favorite_exist
     if @page_object.homePage.favoriteStarTable_element.visible?
       @page_object.homePage.favoriteStarTable_element.click
@@ -381,31 +378,31 @@ When(/^the system display them under Favorites section$/) do
 
     @page_object.homePage.listGroupTopFavorites_element.when_visible(TIME_OUT_LIMIT)
     result = @page_object.homePage.listGroupTopFavorites_element.text
-    
+
     if result.include? "You haven't added any favorites yet."
       results =[]
     else
       results = result.split("\n")
     end
-    
-    if (i == 1) && (results !=[]) 
+
+    if (i == 1) && (results !=[])
       odd_index = 1
-      for i in 1..results.size do 
+      for i in 1..results.size do
         if i == odd_index
           new_results = new_results + [results[i-1]]
           odd_index += 2
-        end 
+        end
       end
       results = new_results
       @school_favorites = new_results
     end
-    
-    
+
+
     actual_result = actual_result + results
   end
 
   @page_object.homePage.favoriteStarMenu_element.click
-  
+
   expect(actual_result).to match_array(@old_title_text)
 end
 
@@ -414,7 +411,7 @@ When(/^the system display the school name under Favorite Schools section$/) do
   @page_object.homePage.favorites_element.when_visible(TIME_OUT_LIMIT)
 
   actual_result = @page_object.homePage.listGroupFavoriteSchools_element.text
-  
+
   if actual_result == ''
     expect(@school_favorites).to eq(nil)
   else
@@ -425,12 +422,5 @@ When(/^the system display the school name under Favorite Schools section$/) do
 
     expect(actual_result).to match_array(@school_favorites)
   end
-  
+
 end
-
-
-
-
-
-
-

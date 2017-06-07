@@ -20,8 +20,3 @@ Then(/^the system will display majors search filters$/) do |table|
   end
   expect(filters_data - expected_results).to eq (expected_results - filters_data)
 end
-
-
-
-
-

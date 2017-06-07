@@ -18,7 +18,7 @@ Background:
   @smoke_test
   Scenario: the system should provide below info under About me section
     When the user select "About me" from Profile section
-    Then the system will display below information under profile section   
+    Then the system will display below information under profile section
       """
         Profile
         About me
@@ -32,15 +32,6 @@ Background:
 
         First name
         Last name
-        What grade are you in?
-          freshman
-          9th grade
-          sophomore
-          10th grade
-          junior
-          11th grade
-          senior
-          12th grade
         Gender
           Female
           Male
@@ -58,8 +49,8 @@ Background:
           White
           Wish to not report
       """
- 
-  
+
+
   Scenario: the Save button should be disable until the user enter all required fields
     When the user select "About me" from Profile section
     Then the profile Save button would be disable
@@ -80,10 +71,10 @@ Background:
       | Citizenship      | Austria                  |
       | Ethnicity        | Hispanic or Latino       |
       | Race             | Asian                    |
-  
+
     Then the user will loss the above about me information if visit "Contact" page
 
-      
+
   @regression
   Scenario: The user should be able to edit and save the About me information
     When the user select "About me" from Profile section
@@ -117,12 +108,3 @@ Background:
     And the user save the information
     Then the user will not loss the above about me information if visit "Contact" page
     And the user should be able to logout
-      
-    
-
-
-  
-
-  
-
-    

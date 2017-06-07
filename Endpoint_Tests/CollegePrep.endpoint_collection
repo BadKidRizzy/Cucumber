@@ -1,0 +1,1219 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CollegePrep",
+		"description": ""
+	},
+	"item": [
+		{
+			"name": "https://www.pathevoprep.com/api/inventory/features/anonymous_features?app_name=CollegePrep",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/inventory/features/anonymous_features?app_name=CollegePrep",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"inventory",
+						"features",
+						"anonymous_features"
+					],
+					"query": [
+						{
+							"key": "app_name",
+							"value": "CollegePrep",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/recommendations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/api/recommendations",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nonFavorites\": {\n    \"schoolIds\": [],\n    \"majorIds\": [],\n    \"occupationIds\": [],\n    \"scholarshipIds\": []\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/highlights",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/api/highlights",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/academics/us/schools?pageSize=10&pageNumber=1&sorts=school_rank%20asc,name_exact%20asc",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/academics/us/schools?pageSize=10&pageNumber=1&sorts=school_rank%20asc,name_exact%20asc",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"academics",
+						"us",
+						"schools"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageNumber",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "sorts",
+							"value": "school_rank%20asc,name_exact%20asc",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/academics/us/scholarships?pageSize=10&pageNumber=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/academics/us/scholarships?pageSize=10&pageNumber=1",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"academics",
+						"us",
+						"scholarships"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageNumber",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/academics/us/majors?pageSize=10&pageNumber=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/academics/us/majors?pageSize=10&pageNumber=1",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"academics",
+						"us",
+						"majors"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageNumber",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/careers/us/occupations?pageSize=10&pageNumber=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/careers/us/occupations?pageSize=10&pageNumber=1",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"careers",
+						"us",
+						"occupations"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageNumber",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/account/register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/api/account/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"FirstName\": \"Randy \",\n  \"LastName\": \"Trimble\",\n  \"Email\": \"{{$guid}}@gmail.com\",\n  \"BirthMonth\": \"5\",\n  \"BirthDay\": \"23\",\n  \"BirthYear\": \"1989\",\n  \"Password\": \"Madskills100\",\n  \"ConfirmPassword\": \"Madskills100\",\n  \"EULAccepted\": true,\n  \"OrganizationId\": null\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"tokenGL\", jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/api/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "trimblerandy@live.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Madskills100",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "osdccollegeprep",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/relate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/relate",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/search/occupations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/search/occupations",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/search/scholarships",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/search/scholarships",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/search/schools",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/search/schools",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/search/majors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/search/majors",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/search/jobs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/search/jobs",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/user_profiles/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/user_profiles/0aa5eee1-78d6-46c6-a8ed-43d460a757b0?oauth_signature_method=HMAC-SHA1&oauth_timestamp=1496419500&oauth_nonce=g4IDAh&oauth_version=1.0&oauth_signature=VDV9L+bwyl4Kdwc2sXttnyA6/VQ=&include=details,subscriptions&app_name=CollegePrep",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"user_profiles",
+						"0aa5eee1-78d6-46c6-a8ed-43d460a757b0"
+					],
+					"query": [
+						{
+							"key": "oauth_signature_method",
+							"value": "HMAC-SHA1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "oauth_timestamp",
+							"value": "1496419500",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "oauth_nonce",
+							"value": "g4IDAh",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "oauth_version",
+							"value": "1.0",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "oauth_signature",
+							"value": "VDV9L+bwyl4Kdwc2sXttnyA6/VQ=",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "include",
+							"value": "details,subscriptions",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "app_name",
+							"value": "CollegePrep",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/favoritesCardLoggedin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/sharing/v1/favoriteItems?pageNumber=1&pageSize=100&favoriteItemTypeId=302ea6f4-327a-418a-a206-4a334667c6e9",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"sharing",
+						"v1",
+						"favoriteItems"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageSize",
+							"value": "100",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "favoriteItemTypeId",
+							"value": "302ea6f4-327a-418a-a206-4a334667c6e9",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/assess logged in",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/assess",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/assess/v2 logged in",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/api/v2/assessments",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/assess/questionnaire/ip1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/api/v2/assessments/8E49B460-0DEB-46A2-8795-000000000001/questionnaires",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/assess/questionnaire/ip1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/assess/questionnaire/ip1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/assess/questionnaire/stem",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/assess/questionnaire/stem",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/userTasks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/userTasks?pageNumber=1&pageSize=10&taskCompletionStatus=Completed",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"userTasks"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageSize",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "taskCompletionStatus",
+							"value": "Completed",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/tasks/new",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/tasks/new",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/assess/questionnaire/stem",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/assess/questionnaire/stem",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/tasks/newSave",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/api/userTasks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"itemTypeId\": \"8e2e1a6c-96f8-49aa-85b8-ee78488494af\",\n  \"taskId\": null,\n  \"title\": \"random string\",\n  \"description\": \"Testing on prod\",\n  \"addedDate\": null,\n  \"startDate\": null,\n  \"dueDate\": \"2018-06-15T04:00:00.000Z\",\n  \"updatedDate\": null,\n  \"isComplete\": false,\n  \"updatedByUserId\": null,\n  \"hasReminders\": 0,\n  \"reminders\": null,\n  \"taskStatus\": null\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "paymentPage",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/profile/payment",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"itemTypeId\": \"8e2e1a6c-96f8-49aa-85b8-ee78488494af\",\n  \"taskId\": null,\n  \"title\": \"random string\",\n  \"description\": \"Testing on prod\",\n  \"addedDate\": null,\n  \"startDate\": null,\n  \"dueDate\": \"2018-06-15T04:00:00.000Z\",\n  \"updatedDate\": null,\n  \"isComplete\": false,\n  \"updatedByUserId\": null,\n  \"hasReminders\": 0,\n  \"reminders\": null,\n  \"taskStatus\": null\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "paymentpage inventory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/inventory/products?app_name=CollegePrep",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"inventory",
+						"products"
+					],
+					"query": [
+						{
+							"key": "app_name",
+							"value": "CollegePrep",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"itemTypeId\": \"8e2e1a6c-96f8-49aa-85b8-ee78488494af\",\n  \"taskId\": null,\n  \"title\": \"random string\",\n  \"description\": \"Testing on prod\",\n  \"addedDate\": null,\n  \"startDate\": null,\n  \"dueDate\": \"2018-06-15T04:00:00.000Z\",\n  \"updatedDate\": null,\n  \"isComplete\": false,\n  \"updatedByUserId\": null,\n  \"hasReminders\": 0,\n  \"reminders\": null,\n  \"taskStatus\": null\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/favoritesCardLoggedin copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://www.pathevoprep.com/api/sharing/v1/favoriteItems?pageNumber=1&pageSize=100&favoriteItemTypeId=302ea6f4-327a-418a-a206-4a334667c6e9",
+					"protocol": "https",
+					"auth": {},
+					"host": [
+						"www",
+						"pathevoprep",
+						"com"
+					],
+					"path": [
+						"api",
+						"sharing",
+						"v1",
+						"favoriteItems"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageSize",
+							"value": "100",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "favoriteItemTypeId",
+							"value": "302ea6f4-327a-418a-a206-4a334667c6e9",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/assess/results",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/profile/payment",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"itemTypeId\": \"8e2e1a6c-96f8-49aa-85b8-ee78488494af\",\n  \"taskId\": null,\n  \"title\": \"random string\",\n  \"description\": \"Testing on prod\",\n  \"addedDate\": null,\n  \"startDate\": null,\n  \"dueDate\": \"2018-06-15T04:00:00.000Z\",\n  \"updatedDate\": null,\n  \"isComplete\": false,\n  \"updatedByUserId\": null,\n  \"hasReminders\": 0,\n  \"reminders\": null,\n  \"taskStatus\": null\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.pathevoprep.com/api/pdf/file/1105230002/pathevo-ip1.pdf",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.pathevoprep.com/profile/payment",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{tokenGL}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"itemTypeId\": \"8e2e1a6c-96f8-49aa-85b8-ee78488494af\",\n  \"taskId\": null,\n  \"title\": \"random string\",\n  \"description\": \"Testing on prod\",\n  \"addedDate\": null,\n  \"startDate\": null,\n  \"dueDate\": \"2018-06-15T04:00:00.000Z\",\n  \"updatedDate\": null,\n  \"isComplete\": false,\n  \"updatedByUserId\": null,\n  \"hasReminders\": 0,\n  \"reminders\": null,\n  \"taskStatus\": null\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -2,7 +2,7 @@ Then(/^the system will display table header name$/) do |table|
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   x = 2
   table_data = @page_object.searchSchoolsPage.searchResults_element
-  
+
   table.rows.each  do |header_name, b|
     expect(table_data[0][x].text).to eq (header_name)
     x +=1
@@ -61,7 +61,7 @@ Then(/^the system will display the School Rank in ascending sort \- check just (
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="Rank"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   result.map!{ |element| element.gsub('#', '') }
   result.map!{ |element| element.to_i }
@@ -75,7 +75,7 @@ Then(/^the system will display the School Name in ascending sort \- check just (
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="School Name"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   expected_result = result.sort_by(&:downcase)
 
@@ -89,7 +89,7 @@ Then(/^the system will display the School Name in descending sort \- check just 
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="School Name"
-  
+
   p result = test_support.get_values_col_for_pages(col_name, page_num)
   p expected_result = result.sort_by(&:downcase).reverse
 
@@ -102,7 +102,7 @@ Then(/^the system will display the Acceptance in ascending sort \- check just (\
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="Acceptance"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   result = result.map(&:to_i)
 
@@ -115,7 +115,7 @@ Then(/^the system will display the Acceptance in descending sort \- check just (
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="Acceptance"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   result = result.map(&:to_i)
 
@@ -128,7 +128,7 @@ Then(/^the system will display the Undergrads in ascending sort \- check just (\
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="Undergrads"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   result = result.map {|s| s.gsub(",", "")}
   result = result.map(&:to_i)
@@ -142,7 +142,7 @@ Then(/^the system will display the Undergrads in descending sort \- check just (
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="Undergrads"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   result = result.map {|s| s.gsub(",", "")}
   result = result.map(&:to_i)
@@ -156,7 +156,7 @@ Then(/^the system will display the Tuition in ascending sort \- check just (\d+)
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="Tuition"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   result = result.map {|s| s.gsub(",", "")}
   result = result.map {|s| s.gsub("$", "")}
@@ -171,7 +171,7 @@ Then(/^the system will display the Tuition in descending sort \- check just (\d+
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="Tuition"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   result = result.map {|s| s.gsub(",", "")}
   result = result.map {|s| s.gsub("$", "")}
@@ -186,7 +186,7 @@ Then(/^the system will display the Location in ascending sort \- check just (\d+
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="Location"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   result = result.map {|s| s.split(",")}
 
@@ -199,7 +199,7 @@ Then(/^the system will display the Location in descending sort \- check just (\d
   WaitUtility.wait_untill_elements_size_steadied
   test_support = TestSupport.new
   col_name ="Location"
-  
+
   result = test_support.get_values_col_for_pages(col_name, page_num)
   result = result.map {|s| s.split(",")}
 
@@ -214,7 +214,7 @@ end
 When(/^the user select the reset button$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
-  
+
   @page_object.searchRelated.allReset_element.click
 end
 
@@ -257,7 +257,7 @@ end
 Then(/^the system will reset Tuition filters to default$/) do
   @page_object.searchRelated.searchResults_element.when_visible(TIME_OUT_LIMIT)
   WaitUtility.wait_untill_elements_size_steadied
-  
+
   expect(@page_object.searchSchoolsPage.minimum).to eq(""), "The minimum filter expected to be empty."
   expect(@page_object.searchSchoolsPage.maximum).to eq(""), "The maximum filter expected to be empty."
 end
@@ -302,8 +302,3 @@ Then(/^the system will reset sort ascending and descending to default$/) do
   fail "The Undergrads #{error_msg}" if @page_object.searchSchoolsPage.searchResults_element[0]['Undergrads'].attribute("class").include? "active"
   fail "The Acceptance #{error_msg}" if @page_object.searchSchoolsPage.searchResults_element[0]['Acceptance'].attribute("class").include? "active"
 end
-
-
-
-
-

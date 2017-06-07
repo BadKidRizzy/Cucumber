@@ -1,17 +1,17 @@
 @jobsSearch
 Feature: The system display the filters options and search results for jobs
 
-  Scenario: The search table results should have header Job Name, Location, Pay and Posted 
+  Scenario: The search table results should have header Job Name, Location, Pay and Posted
     When the user from Home Page navigate to Jobs search Page
     Then the system will display jobs table header name
 	    | header name     |
       | Job Name        |
-      | Location        |   
+      | Location        |
       | Pay             |
       | Posted          |
 
 
-  Scenario: The system should provide search filters  
+  Scenario: The system should provide search filters
     When the user from Home Page navigate to Jobs search Page
     Then the system will display jobs search filters
 	    | Filters                        |
@@ -41,6 +41,7 @@ Feature: The system display the filters options and search results for jobs
       | Construction                   |
       | Consultant                     |
       | Customer Service               |
+      | Contract to Hire               |
       | Design                         |
       | Distribution - Shipping        |
       | Education                      |
@@ -116,7 +117,7 @@ Feature: The system display the filters options and search results for jobs
     And the user search for a job by "IT"
 
     And the user search for "50000" minimum salary in job search
-    
+
     And the user select "Accounting" from job category drop-down
     And the user select "Nurse" from job category drop-down
 
@@ -136,7 +137,3 @@ Feature: The system display the filters options and search results for jobs
     And the location filters should be unselected
     And the employment type filters should be unselected
     And the post date age filters should be unselected
-
-
-  
-

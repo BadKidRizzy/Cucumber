@@ -1,17 +1,17 @@
 @smoke_test, @occupationsSearch
 Feature: The system display the filters options and search results for occupations
 
-  Scenario: The search table results should have header Occupation Name, Prep., Outlook and Average ​​​Salary 
+  Scenario: The search table results should have header Occupation Name, Prep., Outlook and Average ​​​Salary
     When the user from Home Page navigate to Occupations search Page
     Then the system will display occupations table header name
 	    | header name     |
       | Occupation Name |
-      | Prep.           |   
+      | Prep.           |
       | Outlook         |
       | Average Salary  |
 
 
-  Scenario: The system should provide search filters  
+  Scenario: The system should provide search filters
     When the user from Home Page navigate to Occupations search Page
     Then the system will display occupations search filters
 	    | Filters                                          |
@@ -53,19 +53,20 @@ Feature: The system display the filters options and search results for occupatio
       | Mathematics                                      |
       | Multi-disciplinary                               |
       | Reset                                            |
-      
-      
+
+
 
   Scenario: The user should be able to reset the filters to default
     Given the user from Home Page navigate to Occupations search Page
     And the user search for "50000" minimum salary
-    
+
     And the user select "Agriculture, Food and Natural Resources" from career cluster
     And the user select "Architecture and Construction" from career cluster
-    
+
     And the user select "Engineering" from STEM discipline    
     And the user select "Mathematics" from STEM discipline
 
+    And the user select "Some preparation" from preparation needed
     And the user select "Medium preparation" from preparation needed
     And the user select "Considerable preparation" from preparation needed
 
@@ -81,11 +82,4 @@ Feature: The system display the filters options and search results for occupatio
     And the science, technology, engineering, mathematics, and multi-disciplinary filters should be unchecked
     And the preparation needed filters should be unselected
     And the outlook filters should be unselected
-    And the system will reset search box to default 
-    
-  
-  
-
-
-  
-
+    And the system will reset search box to default

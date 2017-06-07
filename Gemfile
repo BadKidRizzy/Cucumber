@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem "activesupport", "~> 4.2.1"
 gem "bson", "~> 4.0.4"
@@ -15,6 +15,6 @@ gem "ruby-jquery", "~> 0.0.1"
 gem "ruby-mysql", "~> 2.9.13"
 gem "watir-webdriver", "~> 0.8.0"
 gem "compass", "~> 1.0.1"
-gem 'cucumber',             '=2.0.2'
+gem 'cucumber','=2.0.2'
 gem 'pretty_face'
 gem 'json', "~> 1.8.1"

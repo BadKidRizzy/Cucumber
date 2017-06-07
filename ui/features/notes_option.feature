@@ -6,7 +6,7 @@ Feature: The system will provide the user Notes option with schools, majors and 
         | key              | Value           |
         | First name       | Jem             |
         | Last name        | Dell            |
-        | Email address    | note@gmail.com  |
+        | Email address    | note1@gmail.com  |
         | Birth Month      | June            |
         | Birth Day        | 22              |
         | Birth Year       | 2001            |

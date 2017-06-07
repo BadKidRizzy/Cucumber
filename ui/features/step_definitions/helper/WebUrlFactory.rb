@@ -25,7 +25,7 @@ end
 def env_type_factory(env_type)
 	urls = {}
 	urls = urls.merge({"stage"        => "https://stage.pathevoprep.com"})
-	urls = urls.merge({"production"  => "https://collegeprep.pathevo.com/home"})
+	urls = urls.merge({"production"  => "https://www.pathevoprep.com"})
 	urls = urls.merge({"test"        => "https://qaprep.pathevo.com"})
 
   if urls[env_type] == nil

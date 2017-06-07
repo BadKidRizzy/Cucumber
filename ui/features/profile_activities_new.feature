@@ -6,7 +6,7 @@ Feature: The user with an account should be able to save activities data
       | key              | Value           |
       | First name       | Jem             |
       | Last name        | Dell            |
-      | Email address    | activity@t.com     |
+      | Email address    | activity@t1.com     |
       | Birth Month      | June            |
       | Birth Day        | 22              |
       | Birth Year       | 2001            |

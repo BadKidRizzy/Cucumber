@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionpack (4.2.7.1)
       actionview (= 4.2.7.1)
@@ -153,4 +153,4 @@ DEPENDENCIES
   watir-webdriver (~> 0.8.0)
 
 BUNDLED WITH
-   1.13.6
+   1.14.6

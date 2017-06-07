@@ -2,7 +2,7 @@ class SearchJobsPage
   include PageObject
   page_url('/search/jobs')
 
-  text_field(:salary, :css => 'h5 ~ input')
+  text_field(:salary, :css => "input[placeholder= 'minimum'] " )
   span(:salaryReset, :css => "div .reset")
 
   radio_button(:not, :id => 'ed-code-0')
@@ -44,6 +44,6 @@ class SearchJobsPage
   b(:industryPage, :css => '.col-xs-6 ~ .col-xs-6 ~ .col-xs-6 ~ .col-xs-6 ~ .col-xs-12 b')
   div(:row3Page, :css => '.row ~ .row  ~ .row ~ .row')
   div(:detailPage, :css => '.well')
-  
+
 
 end
